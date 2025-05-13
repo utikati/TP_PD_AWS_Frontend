@@ -1,0 +1,90 @@
+.main--generic {
+  padding-top: 0 !important;
+  padding-bottom: rem(34);
+  background: $color-white;
+}
+.title--generic {
+  @include font(25, 30);
+  color: $color-gray-5;
+  padding-bottom: rem(15);
+  font-weight: 600;
+  margin-bottom: 0;
+  position: relative;
+}
+.description--generic {
+  color: $color-gray-5;
+
+  @include font(15, 24);
+  max-width: rem(841);
+  margin: auto;
+
+  a {
+    color: $color-yellow-1;
+    transition: $trans-all-3;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+  * {
+    max-width: 100%;
+    word-break: break-word;
+  }
+  &.last-update {
+    color: $color-yellow-1;
+    @include fontFull(12, 15, $font-primary, 0, $font-text--semibold);
+  }
+  p:last-child {
+    margin-bottom: rem(18);
+  }
+}
+// to use at a description container for margin-top
+.margin-top--generic {
+  margin-top: rem(8);
+}
+// to use at a section for margin-bottom
+.margin-bottom--generic {
+  margin-bottom: rem(64);
+}
+.margin-right--generic {
+  margin-right: 17%;
+}
+.img--generic {
+  object-fit: cover;
+  object-position: center;
+  height: 100%;
+}
+.last-update {
+  color: $color-primary;
+  @include fontFull(12, 15, $font-primary, 0, $font-text--semibold);
+}
+@media screen and (min-width: $lg) {
+  .main--generic {
+    padding-bottom: rem(80);
+  }
+  .title--generic {
+    @include font(34, 42);
+    padding-bottom: rem(16);
+  }
+  .description--generic {
+    @include font(18, 28);
+    max-width: rem(841);
+    width: 100%;
+    p {
+      @include font(18, 28);
+    }
+    img {
+      width: auto;
+    }
+  }
+  // to use at a description container for margin-top
+  .margin-top--generic {
+    margin-top: rem(24);
+  }
+  // to use at a section for margin-bottom
+  .margin-bottom {
+    &--generic {
+      margin-bottom: rem(88);
+    }
+  }
+}

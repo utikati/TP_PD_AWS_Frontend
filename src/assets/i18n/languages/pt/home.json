@@ -1,0 +1,21 @@
+{
+  "event": "evento",
+  "event_plural": "Eventos",
+  "event_all": "Ver todos os eventos",
+  "knowMore": "Saber mais",
+  "latestNews": "Últimas Notícias",
+  "news": "notícia",
+  "news_all": "Ler mais notícias",
+  "news_plural": "notícias",
+  "next": "próximo {{item}}",
+  "next_female": "próxima {{item}}",
+  "number": "número",
+  "of": "de",
+  "prev": "{{item}} anterior",
+  "seeAll": "Ver todas",
+  "seeMore": "Ver mais",
+  "socialsTitle": "Siga as nossas redes sociais para mais novidades!",
+  "to": "a",
+  "usefulLink": "Link útil",
+  "usefulLink_plural": "Links úteis"
+}

@@ -1,0 +1,151 @@
+.site-footer {
+  background-color: $color-blue-8;
+  color: $color-white;
+  .footer-top {
+    padding-top: rem(37);
+    padding-bottom: rem(18);
+    border-bottom: 0.5px solid $color-white;
+    &__title {
+      @include font(12, 8, 0.24);
+      font-weight: $font-text--medium;
+      color: $color-white-fe;
+    }
+    &__logos {
+      display: flex;
+      flex-wrap: wrap;
+      gap: rem(22);
+      padding-top: rem(12);
+      .logo {
+        &-mar {
+          width: rem(116);
+          object-fit: contain;
+        }
+        &-portugal {
+          width: rem(142);
+          object-fit: contain;
+        }
+        &-ue {
+          width: rem(141);
+          object-fit: contain;
+        }
+      }
+    }
+  }
+  .footer-bottom {
+    padding-top: rem(26);
+    padding-bottom: rem(23);
+    &__rights {
+      display: flex;
+      justify-content: center;
+      padding-bottom: rem(26);
+      &__text {
+        @include font(13, 16);
+        font-weight: $font-text--light;
+        color: $color-white-f7;
+      }
+    }
+    &__util-links {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      padding-bottom: rem(30);
+      .util-link {
+        @include font(13, 28);
+        color: $color-white-f7;
+        font-weight: $font-text--light;
+      }
+    }
+    &__logo {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      .img-logo {
+        width: rem(80);
+        height: rem(31);
+        object-fit: contain;
+        &.a360 {
+          padding-right: rem(35);
+          width: rem(139);
+          height: rem(45);
+        }
+      }
+    }
+  }
+}
+
+@media screen and (min-width: $lg) {
+  .site-footer {
+    .footer-top {
+      padding-top: rem(28);
+      padding-bottom: rem(27);
+      .container {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: rem(29);
+      }
+      &__title {
+        @include font(12, 14, 0.24);
+        font-weight: $font-text--medium;
+        color: $color-white-fe;
+      }
+      &__logos {
+        display: flex;
+        flex-wrap: wrap;
+        gap: rem(29);
+        padding-top: 0;
+        .logo {
+          &-mar {
+            width: rem(119);
+            height: rem(44);
+            object-fit: contain;
+          }
+          &-portugal {
+            width: rem(152);
+            height: rem(47);
+            object-fit: contain;
+          }
+          &-ue {
+            width: rem(147);
+            height: rem(46);
+            object-fit: contain;
+          }
+        }
+      }
+    }
+    .footer-bottom {
+      padding-top: rem(25);
+      padding-bottom: rem(24);
+      .container {
+        display: flex;
+        justify-content: space-between;
+      }
+      &__rights {
+        justify-content: flex-start;
+        padding-bottom: 0;
+        align-items: center;
+        &__text {
+          @include font(12, 15);
+        }
+      }
+      &__util-links {
+        justify-content: flex-start;
+        align-items: center;
+        flex-direction: row;
+        padding-bottom: 0;
+        .util-link {
+          @include font(12, 15);
+          color: $color-white-f7;
+          font-weight: $font-text--light;
+          padding-right: rem(2);
+        }
+      }
+      &__logo {
+        justify-content: flex-start;
+        gap: rem(22);
+        align-items: flex-end;
+      }
+    }
+  }
+}

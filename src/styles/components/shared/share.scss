@@ -1,0 +1,140 @@
+// importing required sass files
+@import "../../mixins";
+
+// sharebar stryling
+.sharebar {
+  background: transparent;
+  z-index: 2;
+
+  &__container {
+    @extend .d-flex;
+    @extend .flex-column;
+    @extend .align-items-center;
+  }
+  &__title {
+    @extend .text-uppercase;
+    @include font(12, 15, 1.8);
+    color: $color-gray-5;
+    margin-bottom: rem(11);
+  }
+  &__links-container {
+    @extend .d-flex;
+    z-index: 2;
+  }
+  .btn-social {
+    @extend .d-flex;
+    @extend .justify-content-center;
+    @extend .align-items-center;
+    @include font(14);
+    margin-right: rem(8);
+    height: rem(45);
+    width: rem(45);
+    border: 1px solid $color-gray-3;
+    transition: $trans-all-3;
+    color: $color-gray-5;
+    border-radius: 50%;
+    opacity: 1;
+    transition: $trans-all-3;
+
+    &--inactive {
+      opacity: 0;
+      width: 0 !important;
+      border: 0;
+      margin: 0;
+      padding: 0;
+      transition: $trans-all-3;
+      pointer-events: none;
+    }
+    &-collapse--inactive {
+      width: 0 !important;
+      display: none !important;
+      transition: $trans-all-3;
+    }
+  }
+}
+.side-sharebar {
+  @extend .position-fixed;
+  top: rem(312);
+  left: 0;
+  display: none;
+  z-index: 28;
+  background: $color-white;
+  .sharebar {
+    padding: 0;
+  }
+  .wrapper {
+    padding: 0;
+  }
+  .sharebar__container {
+    background: transparent;
+  }
+  .sharebar__title {
+    @include font(6, 8, 0.9);
+    margin: 0;
+    width: 100%;
+    color: $color-white;
+    padding: rem(6);
+    text-align: center;
+    background: $color-gray-5;
+  }
+  .sharebar__links-container {
+    background: $color-white;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    background: transparent;
+  }
+  .btn-social {
+    margin: 0px !important;
+    border-radius: 0px !important;
+    border-top: 0px !important;
+    width: rem(56) !important;
+    height: rem(56) !important;
+    border-color: $color-gray-3 !important;
+    span {
+      color: $color-gray-5;
+    }
+    &:first-of-type {
+      border-top: 1px solid $color-gray-6 !important;
+    }
+    &:hover {
+      border: 1px solid $color-gray-3 !important;
+      border-top: 0 !important;
+      &:first-of-type {
+        border-top: 1px solid $color-gray-6 !important;
+      }
+      span {
+        color: $color-yellow-1;
+      }
+    }
+    &--inactive {
+      display: none;
+      height: 0 !important;
+      border: 0px !important;
+    }
+    &-collapse--inactive {
+      height: 0 !important;
+    }
+  }
+}
+@media screen and (min-width: $lg) {
+  .sharebar {
+    &__title {
+      @include font(12, 18, 1.8);
+      margin-bottom: rem(16);
+    }
+    .btn-social {
+      @include font(16);
+      height: rem(46);
+      width: rem(46);
+
+      &:hover {
+        border-color: $color-yellow-1;
+        color: $color-yellow-1;
+      }
+    }
+  }
+  .side-sharebar {
+    display: block;
+  }
+}

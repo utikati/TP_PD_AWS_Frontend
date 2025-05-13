@@ -1,0 +1,667 @@
+.routes-page {
+  /* Style the buttons that are used to open and close the accordion panel */
+  .kml-popup {
+    display: none;
+  }
+  .leaflet-overlay-pane {
+    .leaflet-interactive {
+      pointer-events: none;
+    }
+  }
+  .accordion {
+    color: #444;
+    width: 100%;
+    text-align: left;
+    border: none;
+    outline: none;
+    margin-bottom: rem(22);
+  }
+
+  .accordion-title {
+    display: flex;
+  }
+
+  .accordion-label {
+    @include fontFull(18, 22, $font-primary, 0);
+    color: $color-primary;
+    font-weight: 400;
+    transition: all 0.2s ease-in-out;
+    text-transform: capitalize;
+    width: 100%;
+  }
+
+  .accordion-content {
+    margin-top: rem(10);
+    color: $color-black;
+    max-height: 0;
+    overflow: hidden;
+    transition: all 0.5s cubic-bezier(0, 1, 0, 1);
+  }
+
+  .accordion-content.show {
+    height: auto;
+    max-height: 9999px;
+    transition: all 0.5s cubic-bezier(1, 0, 1, 0);
+  }
+
+  &__top-content {
+    .breadcrumbs {
+      padding-top: rem(16);
+      .breadcrumb {
+        .breadcrumb-item {
+          line-height: rem(16);
+          color: $color-dark;
+          &::before {
+            color: $color-dark;
+          }
+        }
+      }
+    }
+    &__title {
+      @include fontFull(22, 27, $font-primary, 0);
+      color: $color-gray-5;
+      font-weight: $font-text--semibold;
+      margin-bottom: rem(27);
+    }
+    &__map {
+      .leaflet-container {
+        height: rem(582);
+        width: 100%;
+        margin-bottom: rem(13);
+        z-index: 1;
+        .leaflet-interactive {
+          stroke: $color-primary;
+        }
+        .leaflet-div-icon {
+          background-color: $color-primary;
+          border-radius: 50px;
+          border: none;
+          padding-top: rem(12);
+          padding-left: rem(13);
+          box-shadow: 0px 0px 19px 5px $color-primary;
+
+          &.active {
+            background-color: $color-white;
+          }
+        }
+        .leaflet-popup-close-button {
+          top: 6px;
+          right: 6px;
+          width: rem(46);
+          height: rem(46);
+          background: $color-white;
+          border-radius: 50%;
+          box-shadow: 0px 3px 6px rgba($color-black, 0.16);
+          display: flex;
+          align-items: center;
+          justify-content: center;
+
+          span {
+            display: none;
+          }
+          &::after {
+            content: "\e59b";
+            font-family: "Font Awesome 5 Pro";
+            @include font(27, 35, 0);
+            font-weight: $font-text--bold;
+            color: $color-primary;
+          }
+        }
+      }
+      .leaflet-popup {
+        bottom: 8px !important;
+        .leaflet-popup-content-wrapper {
+          padding: 0px;
+          border-radius: 0px;
+          box-shadow: unset !important;
+          .leaflet-popup-content {
+            width: rem(294) !important;
+            margin: 0 !important;
+          }
+        }
+      }
+      .leaflet-popup-tip-container {
+        height: 0 !important;
+      }
+      .leaflet-control-attribution {
+        overflow: hidden;
+        transition: $trans-all-3;
+        padding-top: 0.25rem;
+        transform: translateX(92%);
+        &.show-attribution {
+          transform: translateX(0);
+        }
+        .js-toggle-attribution {
+          font-size: rem(14);
+          color: $color-primary;
+          cursor: pointer;
+          float: left;
+        }
+        a {
+          color: $color-primary;
+        }
+      }
+
+      &__popup {
+        display: flex;
+        flex-direction: column;
+        height: rem(360);
+        box-shadow: 0px 3px 20px rgba($color-black, 0.16);
+
+        &__image {
+          .top-image {
+            width: 100%;
+            height: rem(136);
+          }
+        }
+        &__text-container {
+          overflow: hidden;
+          padding: rem(20) rem(22) rem(20) rem(22);
+
+          &__marker-title {
+            @include fontFull(15, 24, $font-primary, 0.38);
+            color: $color-gray-5;
+            font-weight: $font-text--semibold;
+            margin-bottom: rem(11);
+          }
+          &__text-description {
+            @include fontFull(13, 20, $font-primary, 0);
+            color: $color-dark;
+            font-weight: $font-text--regular;
+            display: -webkit-box;
+            -webkit-box-orient: vertical;
+            -webkit-line-clamp: 9;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            p {
+              margin: 0;
+            }
+          }
+        }
+      }
+      .leaflet-control-zoom-in {
+        margin: 0px !important;
+      }
+      .leaflet-control-zoom-out {
+        margin-left: 0px !important;
+      }
+    }
+  }
+  &__middle-content {
+    margin-bottom: rem(25);
+    display: flex;
+    flex-direction: column-reverse;
+    &__column-description {
+      margin-top: rem(30);
+      .accordion {
+        &-item {
+          border: none !important;
+          background-color: transparent !important;
+        }
+        &-header {
+          .label-description {
+            @include fontFull(16, 24, $font-primary, 0.4);
+            color: $color-gray-5;
+            text-transform: capitalize;
+            font-weight: $font-text--medium;
+          }
+          .circle-description {
+            width: rem(46);
+            height: rem(46);
+            background: $color-primary;
+          }
+        }
+        &-button {
+          padding: 0;
+          background: none !important;
+          &::after {
+            content: "\2b";
+            font-family: "Font Awesome 5 Pro";
+            width: rem(46);
+            height: rem(46);
+            @include font(20, 27, 0);
+            color: $color-primary;
+            background: $color-blue-2;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+          }
+
+          div {
+            margin-right: rem(24);
+            pointer-events: none;
+          }
+          &:not(.collapsed) {
+            background-color: transparent !important;
+            box-shadow: none !important;
+            color: $color-gray-5;
+            div {
+              -webkit-line-clamp: initial;
+              max-height: 100%;
+              word-break: break-word;
+            }
+            &::after {
+              content: "\f068";
+              font-family: "Font Awesome 5 Pro";
+              @include font(20, 27, 0);
+              width: rem(46);
+              height: rem(46);
+              color: $color-primary;
+              background: $color-blue-2;
+              border-radius: 50%;
+              transition: all 0.2s ease-in-out;
+            }
+          }
+        }
+        &-body {
+          padding: 0;
+          background-color: transparent !important;
+          .text-description {
+            @include fontFull(16, 24, $font-primary, 0);
+            color: $color-dark;
+            font-weight: $font-text--regular;
+          }
+        }
+      }
+    }
+    &__column {
+      width: 100%;
+      height: min-content;
+      background: $color-blue-3;
+      padding: rem(16) rem(32) rem(51) rem(32);
+      .separator {
+        margin-top: rem(22);
+        width: rem(34);
+        border-top: 1px solid $color-primary;
+      }
+
+      &__technical-sheet {
+        @include fontFull(21, 24, $font-primary, 0.53);
+        color: $color-primary;
+        text-transform: capitalize;
+        font-weight: $font-text--bold;
+        margin-bottom: rem(45);
+      }
+      &__headers {
+        display: grid;
+        gap: rem(20);
+        grid-auto-rows: auto;
+        grid-template-columns: 1fr 1fr;
+        margin-bottom: rem(22);
+
+        &--container {
+          .label-header {
+            @include fontFull(12, 15, $font-primary, 1.8);
+            color: $color-primary;
+            font-weight: $font-text--medium;
+            text-transform: capitalize;
+            margin-bottom: rem(17);
+          }
+          .text-header {
+            @include fontFull(29, 35, $font-primary, 0);
+            color: $color-gray-5;
+            font-weight: $font-text--semibold;
+          }
+        }
+      }
+      &__content-technical-sheet {
+        margin-bottom: rem(22);
+        .label-content {
+          @include fontFull(17, 20, $font-primary, 0);
+          color: $color-gray-5;
+          text-transform: capitalize;
+          font-weight: $font-text--medium;
+          margin-bottom: rem(13);
+        }
+        .text-content {
+          @include fontFull(16, 24, $font-primary, 0);
+          color: $color-gray-5;
+          font-weight: $font-text--regular;
+        }
+      }
+
+      &__interest {
+        .accordion {
+          &-item {
+            border: none !important;
+            background-color: transparent !important;
+          }
+
+          &-button {
+            position: relative;
+            @include fontFull(20, 30, $font-primary, 0);
+            font-weight: $font-text--medium;
+            color: $color-dark;
+            text-transform: capitalize;
+            padding: rem(16) rem(16) rem(16) 0;
+            background: none !important;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            div {
+              max-width: rem(200);
+              margin-right: rem(24);
+              pointer-events: none;
+            }
+            .btn-interest-accordion-container {
+              .btn-interest {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                width: 46px;
+                height: 46px;
+                background: $color-primary;
+                border-radius: 50%;
+                margin-right: unset;
+                &::after {
+                  position: absolute;
+                  opacity: 1;
+                  content: "\2b";
+                  font-family: "Font Awesome 5 Pro";
+                  @include font(20, 27, 0);
+                  color: $color-white;
+                  transition: all 0.2s ease-in-out;
+                }
+              }
+            }
+
+            &::after {
+              display: none;
+            }
+
+            &:not(.collapsed) {
+              background-color: transparent !important;
+              padding-bottom: rem(16);
+              box-shadow: none !important;
+              div {
+                -webkit-line-clamp: initial;
+                max-height: 100%;
+                word-break: break-word;
+              }
+
+              .btn-interest-accordion-container {
+                .btn-interest {
+                  display: flex;
+                  align-items: center;
+                  justify-content: center;
+                  width: rem(46);
+                  height: rem(46);
+                  background: $color-primary;
+                  border-radius: 50%;
+                  margin-right: unset;
+                  &::after {
+                    position: absolute;
+                    opacity: 1;
+                    content: "\f068";
+                    font-family: "Font Awesome 5 Pro";
+                    @include font(20, 27, 0);
+                    color: $color-white;
+                    transition: all 0.2s ease-in-out;
+                  }
+                }
+              }
+            }
+          }
+          &-body {
+            padding: 0 !important;
+            background-color: transparent !important;
+            overflow: hidden;
+            .dot-section {
+              display: flex;
+              align-content: center;
+              align-items: center;
+              margin-bottom: rem(8);
+              .label {
+                @include fontFull(16, 24, $font-primary, 0.4);
+                color: $color-gray-5;
+                font-weight: 500;
+                margin-right: rem(14);
+                text-transform: capitalize;
+              }
+              .dots {
+                display: flex;
+                align-content: center;
+                align-items: center;
+                color: $color-primary;
+                font-size: rem(16);
+                .spacing-dots {
+                  margin-right: rem(6);
+                }
+              }
+            }
+          }
+        }
+        .label-interest {
+          @include fontFull(17, 20, $font-primary, 0);
+          color: $color-gray-5;
+          text-transform: uppercase;
+          font-weight: $font-text--medium;
+          margin-bottom: rem(23);
+        }
+        .dot-section {
+          display: flex;
+          align-content: center;
+          align-items: center;
+          margin-bottom: rem(7);
+          .label {
+            @include fontFull(14, 21, $font-primary, 0.35);
+            color: $color-gray-5;
+            text-transform: capitalize;
+            font-weight: $font-text--medium;
+            margin-right: rem(12);
+          }
+          .dots {
+            display: flex;
+            align-content: center;
+            align-items: center;
+            color: $color-primary;
+            font-size: rem(14);
+            .spacing-dots {
+              margin-right: rem(5);
+            }
+          }
+        }
+      }
+    }
+  }
+  .last-update {
+    @include fontFull(12, 15, $font-primary, 0);
+    font-weight: $font-text--semibold;
+    color: $color-primary;
+    text-transform: capitalize;
+    margin-bottom: rem(19);
+    text-align: right;
+  }
+  &__bottom-content {
+    margin-bottom: rem(73);
+    a {
+      color: $color-dark !important;
+      text-decoration: none !important;
+    }
+    p {
+      margin-bottom: 0 !important;
+    }
+  }
+  .accordion-button:focus {
+    z-index: 0;
+    border-color: none;
+    outline: 0;
+    box-shadow: none;
+  }
+  .sharebar {
+    margin-bottom: rem(43);
+  }
+}
+
+//Desktop
+@media screen and (min-width: $lg) {
+  .routes-page {
+    &__top-content {
+      &__overlay {
+        display: block;
+        position: absolute;
+        top: rem(312);
+        left: 0;
+        width: 100%;
+        height: rem(537);
+        background-color: $color-blue-3;
+        z-index: -1;
+      }
+      &__title {
+        @include fontFull(34, 42, $font-primary, 0);
+        font-weight: 600;
+        margin-bottom: rem(70);
+      }
+      &__map {
+        margin-bottom: rem(80);
+        .leaflet-container {
+          height: rem(460);
+          width: 100%;
+        }
+        .leaflet-popup {
+          left: -165px !important;
+          .leaflet-popup-content-wrapper {
+            .leaflet-popup-content {
+              width: rem(360) !important;
+              margin: 0 !important;
+            }
+          }
+        }
+        &__popup {
+          display: flex;
+          flex-direction: row;
+          height: rem(164);
+          &__image {
+            .top-image {
+              width: rem(138);
+              height: 100%;
+            }
+          }
+          &__text-container {
+            overflow: hidden;
+            padding: rem(20);
+
+            &__marker-title {
+              @include fontFull(16, 21, $font-primary, 0);
+              color: $color-black;
+              font-weight: $font-text--semibold;
+              margin-bottom: rem(18);
+            }
+            &__text-description {
+              @include fontFull(12, 16, $font-primary, 0);
+              color: $color-dark;
+              font-weight: $font-text--regular;
+              display: -webkit-box;
+              -webkit-box-orient: vertical;
+              -webkit-line-clamp: 6;
+              overflow: hidden;
+              text-overflow: ellipsis;
+              p {
+                margin: 0;
+              }
+            }
+          }
+        }
+        .triangle {
+          position: absolute;
+          border-top: 20px solid $color-white;
+          border-left: 15px solid transparent;
+          border-right: 15px solid transparent;
+          width: 0;
+          height: 0;
+          bottom: -15px;
+          right: 50%;
+        }
+      }
+    }
+    &__middle-content {
+      margin-inline: unset;
+      margin-bottom: rem(96);
+      display: grid;
+      grid-template-columns: 4fr 5fr;
+
+      &.without-technical-sheet {
+        display: flex;
+      }
+
+      &__column-description {
+        margin-top: 0;
+        margin-right: rem(55);
+        &__description {
+          .label-description {
+            @include fontFull(18, 24, $font-primary, 0.45);
+            color: $color-gray-5;
+            font-weight: $font-text--medium;
+            margin-bottom: rem(15);
+            text-transform: capitalize;
+          }
+          .text-description {
+            @include fontFull(18, 24, $font-primary, 0);
+            color: $color-gray-5;
+            font-weight: $font-text--regular;
+            margin-bottom: rem(54);
+          }
+        }
+      }
+      &__column {
+        padding: rem(79) rem(76) rem(81) rem(92);
+        &__technical-sheet {
+          @include fontFull(34, 42, $font-primary, 0);
+          color: $color-gray-5;
+          font-weight: 600;
+          margin-bottom: rem(60);
+          text-transform: capitalize;
+        }
+        &__headers {
+          margin-bottom: rem(28);
+          &--container {
+            .label-header {
+              @include fontFull(12, 15, $font-primary, 1.8);
+              text-transform: uppercase;
+              margin-bottom: rem(12);
+            }
+            .text-header {
+              @include fontFull(34, 42, $font-primary, 0);
+              font-weight: $font-text--semibold;
+              text-transform: capitalize;
+            }
+          }
+        }
+        &__content-technical-sheet {
+          margin-bottom: rem(24);
+          .label-content {
+            @include fontFull(20, 24, $font-primary, 0);
+            font-weight: $font-text--medium;
+            margin-bottom: rem(12);
+            text-transform: capitalize;
+          }
+          .text-content {
+            @include fontFull(16, 24, $font-primary, 0);
+            font-weight: $font-text--regular;
+            text-transform: capitalize;
+          }
+        }
+      }
+    }
+    &__bottom-content {
+      margin-bottom: rem(89);
+    }
+    .sharebar {
+      margin-bottom: rem(79);
+    }
+    .last-update {
+      @include fontFull(12, 15, $font-primary, 0);
+      font-weight: 600;
+      color: $color-primary;
+      text-transform: capitalize;
+      text-align: left;
+    }
+    .accordion-button:focus {
+      z-index: 0;
+      border-color: none;
+      outline: 0;
+      box-shadow: none;
+    }
+  }
+}

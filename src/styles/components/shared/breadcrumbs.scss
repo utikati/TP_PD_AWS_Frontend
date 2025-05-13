@@ -1,0 +1,36 @@
+.breadcrumb {
+  flex-wrap: wrap;
+  width: auto;
+  margin-bottom: rem(27);
+  padding-top: rem(10);
+
+  &-item {
+    @include font(12, 15);
+    display: flex;
+    align-items: center;
+    white-space: nowrap;
+    color: $color-gray-5;
+    padding: 0 !important;
+    @include linelimit(1, 100%);
+
+    &::before {
+      display: none;
+    }
+    .fa-light {
+      padding-inline: rem(5);
+    }
+  }
+  .active {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    color: $color-gray-5;
+    white-space: normal;
+  }
+}
+
+@media screen and (min-width: $lg) {
+  .breadcrumb {
+    margin-bottom: rem(72);
+    padding-top: rem(16);
+  }
+}

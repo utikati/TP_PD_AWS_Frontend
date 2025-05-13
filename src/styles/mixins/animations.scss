@@ -1,0 +1,130 @@
+@use "sass:math";
+
+@mixin fade-animation($class, $init: 0, $final: 1, $duration: 1s, $delay: 0s) {
+  #{$class} {
+    opacity: $init;
+    animation-name: fade;
+    animation-duration: $duration;
+    animation-delay: $delay;
+    animation-fill-mode: forwards;
+  }
+  @keyframes fade {
+    from {
+      opacity: $init;
+    }
+    to {
+      opacity: $final;
+    }
+  }
+}
+
+@mixin pop-animation($init, $final, $duration: 0.5s, $delay: 0s) {
+  transform: $init;
+  animation-name: pop;
+  animation-duration: $duration;
+  animation-delay: $delay;
+  animation-fill-mode: forwards;
+
+  @keyframes pop {
+    from {
+      transform: $init;
+    }
+    to {
+      transform: $final;
+    }
+  }
+}
+
+@keyframes dropInPrincipal {
+  0% {
+    max-height: 0px;
+    opacity: 0;
+  }
+  10% {
+    max-height: 10px;
+    opacity: 0.1;
+  }
+  20% {
+    max-height: 20px;
+    opacity: 0.2;
+  }
+  30% {
+    max-height: 30px;
+    opacity: 0.3;
+  }
+  40% {
+    max-height: 40px;
+    opacity: 0.4;
+  }
+  50% {
+    max-height: 50px;
+    opacity: 0.5;
+  }
+  60% {
+    max-height: 60px;
+    opacity: 0.6;
+  }
+  70% {
+    max-height: 70px;
+    opacity: 0.7;
+  }
+  80% {
+    max-height: 80px;
+    opacity: 0.8;
+  }
+  90% {
+    max-height: 90px;
+    opacity: 0.9;
+  }
+  100% {
+    max-height: 90px;
+    opacity: 1;
+  }
+}
+
+@keyframes dropOutPrincipal {
+  0% {
+    max-height: 90px;
+    opacity: 1;
+  }
+  10% {
+    max-height: 80px;
+    opacity: 0.9;
+  }
+  20% {
+    max-height: 70px;
+    opacity: 0.8;
+  }
+  30% {
+    max-height: 60px;
+    opacity: 0.7;
+  }
+  40% {
+    max-height: 50;
+    opacity: 0.6;
+  }
+  50% {
+    max-height: 40px;
+    opacity: 0.5;
+  }
+  60% {
+    max-height: 30px;
+    opacity: 0.4;
+  }
+  70% {
+    max-height: 20px;
+    opacity: 0.3;
+  }
+  80% {
+    max-height: 10px;
+    opacity: 0.2;
+  }
+  90% {
+    max-height:0;
+    opacity: 0.1;
+  }
+  100% {
+    max-height: 0;
+    opacity: 0;
+  }
+}

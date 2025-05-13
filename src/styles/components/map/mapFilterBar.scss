@@ -1,0 +1,94 @@
+.map-filter-bar {
+  z-index: 401;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  padding-top: rem(9);
+  padding-left: rem(31);
+  padding-right: rem(42);
+  margin: 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-direction: row;
+
+  &::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    background: transparent linear-gradient(180deg, rgba(255, 255, 255, 0.7) 0%, rgba(255, 255, 255, 0) 100%) 0% 0% no-repeat padding-box;
+    height: rem(94);
+    width: 100%;
+    z-index: 1;
+  }
+
+  &::after {
+    content: "";
+    position: absolute;
+    bottom: -8px;
+    height: 1px;
+    background-color: $color-gray-3;
+    width: calc(100vw - 73px);
+  }
+
+  &__home-section {
+    display: block;
+    z-index: 2;
+
+    .municipality-name {
+      display: none;
+    }
+
+    .icon-arrow-left {
+      color: $color-white;
+      font-size: rem(16);
+      width: rem(46);
+      height: rem(46);
+      background-color: $color-yellow-1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 50%;
+    }
+  }
+}
+
+@media screen and (min-width: 992px) {
+  .map-filter-bar {
+    padding-top: rem(20);
+    padding-left: rem(41);
+    padding-right: rem(52);
+    align-content: center;
+    width: calc(100vw - 415px);
+
+    &::after {
+      content: "";
+      bottom: -16px;
+      width: calc(100vw - 508px);
+    }
+
+    &__home-section {
+      width: rem(350);
+      height: rem(80);
+      position: relative;
+      display: flex;
+      align-items: center;
+      background: transparent;
+      cursor: pointer;
+      .logo-map {
+        width: rem(230);
+        height: rem(119);
+        object-fit: cover;
+        margin-right: rem(42);
+      }
+
+      .icon-arrow-left {
+        font-size: rem(16);
+        margin-left: rem(15);
+        margin-right: rem(20);
+      }
+    }
+  }
+}

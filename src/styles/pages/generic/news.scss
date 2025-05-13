@@ -1,0 +1,104 @@
+#news {
+  &.generic-top-side {
+    .main--generic {
+      background: transparent;
+      position: relative;
+
+      .category {
+        @include font(12, 15);
+        color: $color-primary;
+        font-weight: 500;
+        text-transform: uppercase;
+        padding-bottom: rem(24);
+      }
+      .date {
+        @include font(16, 20);
+        font-weight: normal;
+        padding-top: rem(8);
+        color: $color-gray-5;
+      }
+      .top-new-section {
+        margin-bottom: rem(24);
+
+        &::after {
+          content: "";
+          position: absolute;
+          top: rem(-16);
+          left: calc((100% - 100vw) / 2);
+          width: 100vw;
+          height: rem(253);
+          background: $color-blue-3;
+          z-index: -1;
+        }
+      }
+      .top-section {
+        position: relative;
+
+        &.no-top-image::after {
+          top: rem(-24);
+          height: calc(100% + rem(48));
+        }
+        .title--generic {
+          font-weight: $font-text--semibold;
+        }
+      }
+
+      .title--generic::after {
+        display: none;
+      }
+      .padding-indent {
+        padding-left: rem(18);
+      }
+      .text-indent {
+        padding-left: 0;
+      }
+      .after-bg-transparent::after {
+        background-color: transparent;
+      }
+    }
+  }
+}
+
+@media screen and (min-width: $lg) {
+  #news {
+    &.generic-top-side {
+      .main--generic {
+        .container {
+          .top-section {
+            margin-bottom: rem(64);
+
+            .title--generic {
+              padding-left: rem(92);
+              padding-bottom: rem(48);
+              font-weight: $font-text--bold;
+            }
+          }
+          .top-new-section {
+            &::after {
+              height: rem(618);
+            }
+          }
+          .padding-indent {
+            padding-inline: rem(90) calc(17% - rem(90));
+          }
+          .text-indent {
+            padding-inline: 0;
+          }
+          .category {
+            @include font(16, 20);
+            font-weight: normal;
+            padding-bottom: rem(32);
+          }
+          .date {
+            @include font(16, 20);
+            padding-top: 0;
+            padding-bottom: rem(30);
+          }
+          .gallery-section::after {
+            height: calc(100% + rem(77));
+          }
+        }
+      }
+    }
+  }
+}

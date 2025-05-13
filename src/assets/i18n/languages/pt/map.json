@@ -1,0 +1,21 @@
+{
+  "address": "Morada",
+  "addRoute": "Adicionar à rota",
+  "alreadyAddRoute": "Adicionado à rota",
+  "coordinates": "Coordenadas",
+  "exportPdf": "Exportar rota",
+  "button": "Como chegar",
+  "category": "Categorias",
+  "filters": "Filtros",
+  "clean": "Limpar",
+  "closeBtn": "fechar",
+  "goBackFilters": "Voltar para filtros",
+  "goBackMaps": "Voltar ao mapa",
+  "goBack": "Voltar",
+  "locals": "Locais",
+  "local": "Local",
+  "localization": "Localização",
+  "seeRoute": "Ver Rota",
+  "routePdf": "Rota.pdf",
+  "placeholder": "Pesquisa por termo..."
+}

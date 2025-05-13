@@ -1,0 +1,87 @@
+.no-image-list {
+  .margin-bottom--generic:first-child {
+    margin-bottom: rem(39);
+  }
+  &__content {
+    display: grid;
+  }
+  .title--generic::after {
+    display: none;
+  }
+  &__text-card {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    padding-block: rem(36) rem(24);
+    padding-right: rem(48);
+    width: 100%;
+    border-top: 1px solid $color-gray-3;
+    min-height: rem(102);
+    position: relative;
+    &::before {
+      content: "";
+      position: absolute;
+      top: rem(24);
+      left: 0;
+      width: rem(34);
+      height: 1px;
+      background-color: $color-primary;
+    }
+    &:active .text-card__title {
+      text-decoration: underline;
+    }
+    &:last-of-type {
+      border-bottom: 1px solid $color-gray-3;
+    }
+  }
+  .text-card__title {
+    @include font(15, 22);
+    @include linelimit(2, 100%);
+    font-weight: 600;
+    color: $color-gray-5;
+    margin: 0;
+  }
+}
+@media screen and (min-width: $lg) {
+  .no-image-list {
+    .margin-bottom--generic:first-child {
+      margin-bottom: rem(40);
+    }
+    &__content {
+      grid-template-columns: repeat(2, 1fr);
+      gap: 0 rem(46);
+      padding-block: rem(24);
+    }
+    .title--generic::after {
+      display: block;
+    }
+    &__text-card {
+      padding-block: rem(56) rem(9); //56 sendo 48 + 8 da distancia da linha
+      justify-content: flex-start;
+      min-height: rem(153);
+      &::before {
+        top: rem(48); //linha a 48px do topo
+        height: 1px;
+      }
+      &:hover {
+        .text-card__title {
+          text-decoration: underline;
+        }
+      }
+      &:nth-last-child(2) {
+        border-bottom: 1px solid $color-gray-8;
+      }
+    }
+    .text-card__title {
+      @include font(20, 24);
+      @include linelimit(3, 100%);
+      margin: 0;
+      font-weight: 600;
+    }
+  }
+}
+@media screen and (min-width: $xl) {
+  .no-image-list__content {
+    column-gap: rem(56);
+  }
+}

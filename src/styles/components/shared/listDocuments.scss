@@ -1,0 +1,99 @@
+.documents-section {
+  margin-bottom: rem(49);
+  padding-left: rem(18);
+  .document {
+    .accordion-anim {
+      .document__item {
+        align-items: center;
+        .document__name {
+          @include fontFull(12, 16, $font-primary, 0, $font-text--regular);
+          padding-left: rem(7);
+          @include linelimit(1, 1 * 16px, true);
+        }
+        .document__download {
+          min-width: rem(45);
+          min-height: rem(45);
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          color: $color-primary;
+          margin-right: rem(9);
+
+          background-color: $color-white-3;
+        }
+        &:hover {
+          background-color: $color-yellow-light-3;
+          .document__name {
+            @include fontFull(12, 16, $font-primary, 0, $font-text--medium);
+          }
+          .document__download {
+            background-color: $color-yellow-1;
+            border-radius: 50%;
+            color: $color-primary;
+            &::after {
+              color: $color-white;
+            }
+          }
+          &::before {
+            background-color: $color-yellow-light-3;
+            z-index: 1;
+          }
+          &::after {
+            background-color: $color-yellow-light-3;
+            z-index: 1;
+          }
+        }
+      }
+    }
+  }
+}
+
+@media screen and (min-width: $lg) {
+  .documents-section::after {
+    top: rem(-44);
+    height: calc(100% + rem(88));
+  }
+  .documents-section {
+    margin-bottom: rem(49);
+    padding-left: 0;
+    .document {
+      .accordion-anim {
+        .document__item {
+          gap: rem(3);
+          .document__type {
+            display: flex;
+            color: $color-dark-3;
+            border: 1px solid $color-dark-3;
+          }
+          .document__name {
+            @include fontFull(16, 24, $font-primary, 0, $font-text--regular);
+            padding-left: rem(7);
+            color: $color-dark-3;
+            @include linelimit(1, 1 * 24px, true);
+          }
+          .document__download {
+            color: $color-primary;
+            margin-right: 0;
+            background-color: unset;
+          }
+          &:hover {
+            .document__type {
+              color: $color-yellow-1;
+              border: 2px solid $color-yellow-1;
+            }
+            .document__name {
+              @include fontFull(16, 24, $font-primary, 0, $font-text--medium);
+              color: $color-yellow-1;
+            }
+            .document__download {
+              background-color: $color-yellow-1;
+              &::after {
+                color: $color-white;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

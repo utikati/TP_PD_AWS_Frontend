@@ -1,0 +1,85 @@
+#topDescription {
+  &.margin-bottom {
+    &__top-description {
+      margin-bottom: rem(29);
+      .text-indent {
+        img:not[width] {
+          width: 100%;
+        }
+      }
+
+      .margin-top--generic {
+        .description--subtitle {
+          margin-bottom: rem(24);
+          @include font(16, 22, 0);
+          font-weight: $font-text--medium;
+          color: $color-gray-5;
+        }
+      }
+
+      blockquote {
+        margin-bottom: rem(28);
+        padding-right: rem(17);
+        margin-top: rem(20);
+        @include font(20, 26);
+        color: $color-primary;
+        font-weight: 300;
+        position: relative;
+
+        &::before {
+          content: "";
+          position: absolute;
+          background-image: url("../../../assets/images/svg/quotes.svg");
+          background-size: 100% auto;
+          background-repeat: no-repeat;
+          top: rem(-8);
+          width: rem(21);
+          height: rem(21);
+          z-index: -1;
+          transform: translateX(rem(-10));
+        }
+      }
+      a {
+        color: $color-yellow-1;
+      }
+    }
+  }
+}
+
+@media screen and (min-width: $lg) {
+  #topDescription {
+    &.margin-bottom {
+      &__top-description {
+        display: flex;
+        justify-content: center;
+        .margin-top--generic {
+          .description--subtitle {
+            max-width: rem(841);
+            width: 100%;
+            margin-bottom: rem(21);
+            @include font(18, 24, 0.45);
+            font-weight: $font-text--bold;
+          }
+        }
+        .description--generic {
+          &.text-indent {
+            padding-inline: 0 !important;
+          }
+          blockquote {
+            margin-top: rem(60);
+            @include font(40, 48);
+            p {
+              @include font(40, 48);
+            }
+            &::before {
+              top: rem(-56);
+              width: rem(92);
+              height: rem(92);
+              transform: translateX(rem(-45));
+            }
+          }
+        }
+      }
+    }
+  }
+}

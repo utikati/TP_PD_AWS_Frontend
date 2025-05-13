@@ -1,0 +1,69 @@
+.not-found {
+  height: 100svh;
+  height: 100vh;
+  width: 100svw;
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: $color-yellow-1;
+  &__container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+  &--title {
+    margin-bottom: rem(32);
+    h1 {
+      text-align: center;
+      @include fontFull(90, 112, $font-primary, 0, $font-text--bold);
+      color: $color-white;
+      text-transform: uppercase;
+    }
+  }
+  &--text {
+    margin-bottom: rem(87);
+    p {
+      @include fontFull(18, 30, $font-primary, 0, $font-text--bold);
+      text-align: center;
+      color: $color-white;
+      text-transform: uppercase;
+    }
+  }
+  &--way-back-home {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: rem(266);
+    height: rem(48);
+    background-color: $color-white;
+    a {
+      height: 100%;
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      @include fontFull(16, 19, $font-primary, 0.8, $font-text--medium);
+      text-transform: uppercase;
+      color: $color-yellow-1;
+    }
+  }
+}
+
+@media screen and (min-width: $lg) {
+  .not-found {
+    &--title {
+      margin-bottom: 0;
+      h1 {
+        @include fontFull(181, 226, $font-primary, 0, $font-text--bold);
+      }
+    }
+    &--text {
+      margin-bottom: rem(78);
+      p {
+        @include fontFull(24, 30, $font-primary, 0, $font-text--bold);
+      }
+    }
+  }
+}
