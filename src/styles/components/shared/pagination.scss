@@ -1,0 +1,194 @@
+.pagination {
+  &__container {
+    display: flex;
+    list-style-type: none;
+    align-items: center;
+    justify-content: center;
+    padding-left: 0;
+    margin-bottom: rem(56);
+    max-width: 100vw;
+    gap: rem(2);
+
+    .prev-label,
+    .next-label {
+      white-space: nowrap;
+      @include font(12, 15, 1.2);
+      text-transform: uppercase;
+      font-weight: normal;
+    }
+    .prev-label {
+      padding-right: rem(32);
+    }
+    .next-label {
+      padding-left: rem(32);
+    }
+  }
+  &__item {
+    min-height: rem(45);
+    min-width: rem(45);
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: $trans-all-3;
+    border-radius: 50%;
+    border-left: 0;
+    z-index: 2;
+
+    &:first-of-type,
+    &:last-of-type {
+      max-width: rem(68);
+    }
+    &:last-of-type {
+      border-right: 0;
+    }
+    a,
+    button,
+    .arrow-next,
+    .arrow-prev {
+      @include fontFull(13, 19, $font-primary, 1.8, $font-text--regular);
+      color: $color-yellow-1;
+      display: flex;
+      width: 100%;
+      align-self: stretch;
+      align-items: center;
+      justify-content: center;
+    }
+    .arrow-prev,
+    .arrow-next {
+      @include font(17, 22);
+      font-family: $font-awesome;
+      color: $color-yellow-1;
+      box-shadow: 0px 3px 6px rgba($color-black, 0.1);
+      border-radius: 50%;
+    }
+    .arrow-prev::before {
+      content: "";
+    }
+    .arrow-next::before {
+      content: "";
+    }
+    &--dots {
+      pointer-events: none;
+    }
+    &--active {
+      background-color: $color-yellow-1;
+      box-shadow: 0px 3px 6px rgba($color-black, 0.1);
+      a,
+      button,
+      .arrow-next,
+      .arrow-prev {
+        color: $color-yellow-1;
+      }
+      a {
+        font-weight: $font-text--bold;
+        color: $color-white;
+      }
+    }
+    &--disabled {
+      pointer-events: none;
+      a,
+      button,
+      .arrow-next,
+      .arrow-prev {
+        pointer-events: none;
+        color: $color-gray-3;
+      }
+
+      &:hover {
+        background-color: transparent;
+        cursor: default;
+      }
+    }
+  }
+}
+@media screen and (min-width: $lg) {
+  .pagination {
+    &__container {
+      margin-bottom: rem(65);
+      gap: rem(27);
+    }
+    &__item {
+      min-height: rem(45);
+      min-width: rem(45);
+      max-width: 100%;
+      a {
+        @include font(15, 21);
+        border-radius: 50%;
+      }
+      .a,
+      button,
+      .arrow-next,
+      .arrow-prev {
+        align-self: center;
+      }
+
+      .arrow-prev,
+      .arrow-next {
+        @include font(16, 20);
+        height: rem(45);
+        width: rem(45);
+      }
+
+      button,
+      .prev-link,
+      .next-link {
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        transition: $trans-all-3;
+        gap: rem(12);
+
+        p {
+          @include font(14, 21, 0.56);
+          margin: 0 !important;
+
+          &::first-letter {
+            text-transform: uppercase !important;
+          }
+        }
+      }
+
+      &:first-of-type,
+      &:last-of-type {
+        max-width: 100%;
+      }
+
+      &:hover {
+        .arrow-prev,
+        .arrow-next,
+        .page-number {
+          color: $color-yellow-1;
+          border: 1px solid $color-yellow-1;
+        }
+
+        &.pagination__item--active {
+          background-color: $color-white-f7;
+          color: $color-yellow-1;
+          a {
+            color: $color-yellow-1;
+            border: 1px solid $color-yellow-1;
+          }
+        }
+        .pagination__item--disabled {
+          .arrow-next {
+            border-color: transparent;
+          }
+          .arrow-prev {
+            border-color: transparent;
+          }
+        }
+      }
+      &--disabled {
+        border-color: $color-gray-8 !important;
+        a,
+        button,
+        .arrow-prev,
+        .arrow-next {
+          color: $color-gray-8 !important;
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,16 @@
+{
+  "acceptAll": "Aceitar todos",
+  "description": "Este site utiliza cookies para lhe fornecer a melhor experiência de navegação. Ao clicar em \"Aceitar todos\", permitirá que sejam utilizados todos os cookies. Contudo, poderá visitar as \"Definições de Cookies\" para configurar o seu consentimento de forma controlada.",
+  "popup": {
+    "alwaysActive": "Sempre ativado",
+    "description": "Este site usa cookies para melhorar a sua experiência enquanto navega pelo site. Destes cookies, os cookies que são categorizados como necessários são armazenados no seu navegador, pois são essenciais para o funcionamento das funcionalidades básicas do site. Também usamos cookies de terceiros que nos ajudam a analisar e entender como você utiliza este site. Esses cookies serão armazenados no seu navegador apenas com o seu consentimento. Você também tem a opção de cancelar esses cookies. Porém, a desativação de alguns desses cookies pode afetar a sua experiência de navegação.",
+    "mandatory": "Necessários",
+    "mandatoryDescription": "Os cookies necessários são absolutamente essenciais para o funcionamento adequado do site. Esta categoria inclui apenas cookies que garantem as funcionalidades básicas e recursos de segurança do site. Esses cookies não armazenam nenhuma informação pessoal.",
+    "optional": "Opcionais",
+    "optionalDescription": "Quaisquer cookies que possam não ser particularmente necessários para o funcionamento do site e sejam utilizados ​​especificamente para recolher dados pessoais do usuário por meio de análises, anúncios e outros conteúdos incorporados são denominados cookies opcionais. É obrigatório obter o consentimento do utilizador antes de executar estes cookies.",
+    "save": "Guardar",
+    "title": "Visão geral da privacidade"
+  },
+  "settings": "Definições de Cookies",
+  "title": "Definições de Cookies"
+}

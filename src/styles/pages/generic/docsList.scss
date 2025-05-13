@@ -1,0 +1,26 @@
+.docs-list {
+  .title__container--generic {
+    justify-content: center;
+  }
+}
+@media screen and (min-width: $lg) {
+  .docs-list {
+    .title__container--generic {
+      flex-direction: column;
+      gap: rem(8);
+      .title--generic {
+        text-align: center;
+      }
+    }
+    .document {
+      &__title {
+        color: $color-gray-5;
+        @include font(18, 28);
+      }
+      &__item,
+      li:last-of-type {
+        border-color: rgba(37, 170, 187, 0.19);
+      }
+    }
+  }
+}

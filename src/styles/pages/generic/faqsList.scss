@@ -1,0 +1,292 @@
+.faqs-list {
+  .title__container--generic {
+    margin-bottom: rem(15);
+    text-align: center;
+  }
+  .main--generic {
+    background-color: $color-white;
+    padding-top: rem(10);
+    .margin-bottom {
+      &__header {
+        margin-bottom: rem(32);
+        .margin-top--generic {
+          display: flex;
+          justify-content: center;
+          .margin-right--generic {
+            max-width: rem(848);
+            margin-right: 0;
+            text-align: center;
+          }
+        }
+        .last-update__container {
+          display: flex;
+          justify-content: center;
+          span {
+            display: block;
+            width: rem(848);
+            text-align: end;
+          }
+        }
+        .description--generic {
+          p:last-child {
+            margin-bottom: rem(10) !important;
+          }
+        }
+      }
+    }
+  }
+  .title__container--generic {
+    justify-content: center;
+  }
+  .accordion {
+    &-item {
+      border-radius: 0px !important;
+      border-color: $color-gray-3;
+      border-left: 0px !important;
+      border-right: 0px !important;
+    }
+    &-button {
+      padding: rem(24) rem(16) rem(24) 0;
+      transition: $trans-all-3;
+      background: $color-white;
+
+      &:focus {
+        border: 0;
+        box-shadow: none;
+      }
+      &:hover div {
+        color: $color-primary;
+      }
+      &__bg {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        left: 0;
+        top: 0;
+        background: rgba(255, 255, 255, 0.09) 0% 0% no-repeat padding-box;
+        opacity: 0;
+        transition: $trans-all-3;
+        pointer-events: none;
+      }
+      div {
+        @include font(13, 16);
+        @include linelimit(3, 100%);
+        color: $color-gray-5;
+        margin-right: rem(24);
+        pointer-events: none;
+      }
+      &::after {
+        @extend .position-absolute;
+        width: rem(11);
+        height: rem(1);
+        background-image: none !important;
+        background: $color-primary;
+        opacity: 1;
+        top: rem(29);
+        right: 0;
+      }
+      &::before {
+        @extend .position-absolute;
+        content: "";
+        width: rem(1);
+        height: rem(11);
+        background-image: none !important;
+        background: $color-primary;
+        transition: all 0.2s ease-in-out;
+        top: rem(24);
+        right: rem(5);
+      }
+      &:not(.collapsed) {
+        padding-left: rem(12);
+        padding-bottom: rem(12);
+        background: $color-gray-11;
+        border: 0;
+        color: transparent;
+        box-shadow: none;
+        transition: $trans-all-3;
+
+        .accordion-button__bg {
+          opacity: 1;
+        }
+        div {
+          @include font(14, 16);
+          -webkit-line-clamp: initial;
+          font-weight: 500;
+          color: $color-primary;
+          max-height: 100%;
+          word-break: break-word;
+        }
+
+        &::before {
+          transform: rotate(90deg);
+          transition: all 0.2s ease-in-out;
+        }
+        &::after {
+          opacity: 0;
+          transform: rotate(90deg);
+          transition: all 0.2s ease-in-out;
+        }
+      }
+    }
+    &-header[aria-expanded="true"] {
+      border-top: rem(2) solid $color-primary;
+    }
+    &-collapse {
+      width: 100%;
+      background: $color-gray-11;
+      &.show {
+        border-bottom: rem(2) solid $color-primary;
+      }
+    }
+    &-body {
+      padding: 0px rem(12);
+      position: relative;
+      overflow: hidden;
+    }
+  }
+  .faq-item-info {
+    .slide-fade-anim {
+      &.active {
+        opacity: 1;
+        transform: translateY(0);
+        transition: $trans-all-3;
+      }
+    }
+    .faqs-list__docs-item-description {
+      @include font(13, 16);
+      color: $color-gray-5;
+      margin-right: rem(24);
+    }
+    .last-update {
+      margin-bottom: rem(9);
+    }
+    .document {
+      margin-top: rem(26);
+    }
+    .faq-list-update {
+      display: block;
+      margin-bottom: rem(9);
+      margin-top: rem(17);
+    }
+  }
+  .document {
+    &__item {
+      padding-left: rem(12);
+      margin-inline: rem(-12);
+
+      &:hover {
+        border-top: rem(1) solid $color-gray-3;
+        border-bottom: 0 solid $color-gray-3;
+      }
+    }
+    li:last-of-type {
+      border-bottom: 0;
+    }
+  }
+}
+@media screen and (min-width: $lg) {
+  .faqs-list {
+    .main--generic {
+      .margin-bottom__header {
+        margin-bottom: rem(46);
+        .description--generic {
+          p:last-child {
+            margin-bottom: rem(28) !important;
+          }
+        }
+      }
+    }
+
+    .title__container--generic {
+      flex-direction: column;
+      gap: rem(8);
+      margin-bottom: rem(48);
+    }
+    .faqs-list__content {
+      display: flex;
+      justify-content: center;
+    }
+    .accordion {
+      max-width: rem(904);
+      &-button {
+        padding: rem(24) rem(24) rem(24) 0;
+
+        &:active div,
+        &:hover div {
+          color: $color-primary;
+        }
+        .accordion-button__bg {
+          width: 100%;
+          left: 0;
+        }
+        div {
+          @include linelimit(2, 100%);
+          @include font(18, 28);
+          margin-right: rem(250);
+          padding-right: rem(11);
+        }
+        &::after {
+          width: rem(16);
+          height: rem(2);
+          right: rem(24);
+          top: rem(35);
+          background: $color-primary;
+        }
+        &::before {
+          width: rem(2);
+          height: rem(16);
+          right: rem(31);
+          top: rem(28);
+          background: $color-primary;
+        }
+        &:not(.collapsed) {
+          -webkit-line-clamp: initial;
+          max-height: 100%;
+          word-break: break-word;
+          padding-left: rem(24);
+          padding-bottom: rem(14);
+          transition: padding 0.5s ease;
+
+          div {
+            @include font(20, 30);
+            font-weight: 500;
+            color: $color-primary;
+            margin-right: rem(68);
+            transition: margin 0.1s ease, color 0.3s ease;
+            &:hover {
+              background-color: $color-white;
+            }
+          }
+        }
+      }
+      &-body {
+        padding: 0px rem(24);
+      }
+      &-collapse {
+        width: 100%;
+        margin-left: 0;
+      }
+      .accordion-header {
+        margin-bottom: 0;
+      }
+    }
+    .faq-item-info {
+      .faqs-list__docs-item-description {
+        @include font(16, 22);
+      }
+    }
+
+    &__docs {
+      &-item-description {
+        @include font(16, 24);
+        margin-right: rem(24);
+      }
+    }
+    .document {
+      &__item {
+        padding-inline: rem(24);
+        margin-inline: rem(-24);
+      }
+    }
+  }
+}

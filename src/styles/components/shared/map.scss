@@ -1,0 +1,153 @@
+.generic-map {
+  padding-left: 0;
+  padding-right: 0;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  .leaflet-container {
+    aspect-ratio: 25/16;
+    width: 100vw;
+    left: calc((100% - 100vw) / 2);
+    height: rem(237);
+
+    .leaflet-pane {
+      z-index: 27; /*prevent map to be on top of header*/
+    }
+
+    .leaflet-top.leaflet-right {
+      z-index: 28;
+    }
+
+    .leaflet-control-attribution {
+      overflow: hidden;
+      transition: $trans-all-3;
+      padding-top: 0.25rem;
+      transform: translateX(93%);
+      &.show-attribution {
+        transform: translateX(0);
+      }
+      .js-toggle-attribution {
+        font-size: rem(14);
+        color: $color-yellow-1;
+        cursor: pointer;
+        float: left;
+      }
+
+      a {
+        color: $color-primary;
+      }
+    }
+  }
+  .marker-blur {
+    filter: blur(3px);
+  }
+  .map-details {
+    margin-top: -4rem;
+    z-index: 29;
+    position: relative;
+    background-color: $color-light;
+
+    .map-details-wrapper {
+      padding: rem(24) rem(40);
+
+      .map-title {
+        @include fontFull(15, 19, $font-primary, 0, $font-text--medium);
+        margin-bottom: rem(32);
+        color: $color-gray-5;
+      }
+      .marker-details {
+        @include fontFull(13, 20, $font-primary, 0, $font-text--regular);
+        margin-bottom: rem(24);
+        color: $color-gray-5;
+        position: relative;
+        .coordinates-text {
+          @include fontFull(13, 24, $font-primary, 0, $font-text--medium);
+          color: $color-gray-5;
+        }
+        &::before {
+          content: "";
+          position: absolute;
+          width: rem(34);
+          height: 1px;
+          background-color: $color-yellow-1;
+          top: rem(-12);
+          left: 0;
+        }
+      }
+      &__map-button {
+        @include font(14, 18, 0.35);
+        padding: rem(6) rem(20);
+        white-space: nowrap;
+        text-transform: uppercase;
+        color: $color-white;
+        background-color: $color-yellow-1;
+        border: 1px solid $color-yellow-1;
+        border-radius: 2px;
+        max-width: rem(156);
+        height: rem(48);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        &:hover {
+          background-color: $color-white;
+          color: $color-yellow-1;
+          border: 1px solid $color-yellow-1;
+        }
+      }
+    }
+  }
+}
+
+@media screen and (min-width: $sm) {
+  .generic-map {
+    .leaflet-container {
+      min-height: rem(275);
+    }
+  }
+}
+
+@media screen and (min-width: $lg) {
+  .generic-map {
+    padding-left: 2rem;
+    display: flex;
+
+    &.template-section {
+      flex-direction: row;
+    }
+
+    .leaflet-container {
+      width: 60%;
+      left: 0;
+      height: rem(388);
+      position: absolute;
+      top: 0;
+    }
+    .map-details {
+      position: relative;
+      padding: 0;
+      margin-left: auto;
+      margin-top: rem(64);
+      width: 50%;
+      z-index: 0;
+      .map-details-wrapper {
+        padding: rem(86) rem(112) rem(85) rem(184);
+        .map-title {
+          @include font(20, 24);
+          font-weight: $font-text--medium;
+          margin-bottom: rem(36);
+        }
+        .marker-details {
+          @include font(16, 24);
+          margin-bottom: rem(39);
+          font-weight: normal;
+
+          .coordinates-text {
+            @include font(16, 24, 0.4);
+            font-weight: $font-text--medium;
+            margin-top: rem(12);
+          }
+        }
+      }
+    }
+  }
+}

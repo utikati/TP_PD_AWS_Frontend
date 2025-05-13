@@ -1,0 +1,16 @@
+{
+  "day": "Day",
+  "event": "Event",
+  "eat": "Where to eat",
+  "enjoyVisit": "Enjoy your Visit",
+  "followResume": "Resume of your route",
+  "followItinerary": "Resume of your itinerary",
+  "sleep": "Where to sleep",
+  "sugestions": "VISIT OUR GEO SUGESTIONS",
+  "sugestionsStore": "VISIT OUR STORE SUGESTIONS",
+  "thankYouTitle": "Thank you for using Interative Map",
+  "thankYouTitleTravelPlanner": "Thank you for using Travel Planner",
+  "travel": "Route",
+  "program": "Program",
+  "validationFooter": "The validation of this itinerary does not guarantee the reservation. You must make your reservation through the contacts presented."
+}

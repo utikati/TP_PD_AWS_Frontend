@@ -1,0 +1,91 @@
+// general variables
+
+// colors
+$color-white: #fff; //Base
+$color-white-f7: #f7f7f7; //GEO
+$color-white-f2: #f2f2f2; //GEO
+$color-white-fe: #fefefe; //GEO
+$color-white-3: #f6f6f6; //GEO
+$color-black: #000000; //GEO
+$color-black-09: #090909; //GEO
+$color-light: #f9f9f9; //Base
+$color-dark: #21252a;
+$color-dark-2: #242424; //Base
+$color-dark-3: #646464; //Base
+$color-dark-4: #333333; //GEO
+$color-dark-5: #3c3c3b; //GEO
+
+$color-gray-1: #f9f9f9; //Base
+$color-gray-2: #202020; //Base
+$color-gray-3: #e2e4e7; //GEO
+$color-gray-4: #fafbff; //Base
+$color-gray-5: #232323; //Base
+$color-gray-6: #f1f3f5;
+$color-gray-7: #383b3e;
+$color-gray-8: #cfd4da;
+$color-gray-9: #e4dede; //Base
+$color-gray-10: #707070;
+$color-gray-11: #f8f8f8; //GEO
+$color-gray-12: #efefef; //GEO
+$color-gray-99: #99abb8; //GEO
+$color-gray-77: #77848e; // GEO
+$color-gray-6c: #6c6c6c; //GEO
+$color-gray-9c: #9c9c9c; //GEO
+$color-gray-e1: #e1e1e1; //GEO
+$color-gray-fa: #fafafb; //GEO
+$color-gray-a3: #7a94a3; //GEO
+
+$color-primary: #3965dd; //Base
+
+$color-blue-1: #b4c5f3; //Base
+$color-blue-2: #e6edff; //Base
+$color-blue-3: #fafbff; //Base
+$color-blue-4: #1d4ed6;
+$color-blue-5: #0063b0; //Base
+$color-blue-6: #05508a; //Base
+$color-blue-7: #dbe9f4; //Base
+$color-blue-8: #011840; //GEO
+$color-blue-9: #0c4d7f; //GEO
+$color-blue-10: #006ab5; //GEO
+$color-blue-11: #004572; //GEO
+$color-blue-12: #3d6175; //GEO
+
+$color-yellow-light-1: #fbf5e3; //GEO
+$color-yellow-light-2: #fdf8ea; //GEO
+$color-yellow-light-3: #fefcf5; //GEO
+$color-yellow-light-4: #fdf9ed; //GEO
+$color-yellow-1: #d9a500; //GEO
+$color-yellow-2: #bf9203; //GEO
+$color-yellow-3: #d08c00; //GEO
+$color-brown-light-1: #bc5c40; //GEO
+$color-brown-1: #3e1b19; //GEO
+$color-brown-2: #290c10; //GEO
+$color-brown-3: #a84936; //GEO
+
+$color-green-1: #3b9d8f; //GEO
+$color-green-2: #62a76a; //GEO
+
+//fonts
+$font-primary: "Montserrat", sans-serif;
+$font-awesome: "Font Awesome 5 Pro";
+
+// fonts Weight
+$font-text--light: 300;
+$font-text--regular: 400;
+$font-text--medium: 500;
+$font-text--semibold: 600;
+$font-text--bold: 700;
+$font-text--extrabold: 800;
+$font-text--black: 900;
+// breakpoints
+$xs: 355px;
+$sm: 576px;
+$md: 768px;
+$lg: 992px;
+$xl: 1200px;
+$xxl: 1400px;
+
+// transitions
+$trans-all-1: all 0.1s ease;
+$trans-all-3: all 0.3s ease;
+$trans-all-5: all 0.5s ease;

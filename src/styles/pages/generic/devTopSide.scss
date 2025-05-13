@@ -1,0 +1,119 @@
+#devTopSide {
+  &.generic-top-side {
+    .main--generic {
+      background: transparent;
+      position: relative;
+      .category {
+        @include font(12, 15);
+        color: $color-gray-5;
+        font-weight: 500;
+        text-transform: uppercase;
+        padding-bottom: rem(24);
+      }
+      .date {
+        @include font(13, 24);
+        font-weight: normal;
+        padding-top: rem(8);
+        color: $color-gray-5;
+      }
+      .top-section {
+        position: relative;
+
+        &.no-top-image::after {
+          top: rem(-24);
+          height: calc(100% + rem(48));
+        }
+        .title--generic {
+          font-weight: $font-text--semibold;
+          padding-bottom: rem(17);
+        }
+      }
+
+      .title--generic::after {
+        display: none;
+      }
+      .text-indent {
+        padding-left: rem(18);
+      }
+      .padding-indent {
+        padding-left: rem(18);
+      }
+
+      .after-bg-transparent::after {
+        background-color: transparent;
+      }
+    }
+  }
+  #description.margin-bottom__description {
+    .description--generic {
+      p:last-child {
+        margin-bottom: rem(18) !important;
+      }
+    }
+    margin-bottom: rem(29);
+  }
+  .margin-bottom--generic {
+    &.gallery-section {
+      margin-bottom: rem(53);
+    }
+  }
+}
+
+@media screen and (min-width: $lg) {
+  #devTopSide {
+    &.generic-top-side {
+      .main--generic {
+        .container {
+          .top-section {
+            margin-bottom: rem(64);
+
+            .title--generic {
+              padding-left: rem(92);
+              padding-bottom: rem(40); //the top image have 28px margin top
+              font-weight: $font-text--bold;
+            }
+          }
+
+          .text-indent {
+            padding-inline: rem(90) calc(17% - rem(90));
+          }
+          .padding-indent {
+            padding-inline: rem(90) calc(17% - rem(90));
+          }
+
+          .category {
+            @include font(16, 20);
+            font-weight: normal;
+            padding-bottom: rem(32);
+          }
+          .date {
+            @include font(16, 20);
+            padding-top: 0;
+            padding-bottom: rem(30);
+          }
+
+          .gallery-section::after {
+            height: calc(100% + rem(77));
+          }
+        }
+      }
+    }
+    #topDescription.margin-bottom__top-description {
+      margin-bottom: rem(35);
+    }
+    #description.margin-bottom__description {
+      .description--generic {
+        max-width: none;
+        p:last-child {
+          margin-bottom: rem(6) !important;
+        }
+      }
+      margin-bottom: rem(38);
+    }
+    .margin-bottom--generic {
+      &.gallery-section {
+        margin-bottom: rem(54);
+      }
+    }
+  }
+}

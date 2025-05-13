@@ -1,0 +1,238 @@
+.mapPage {
+  overflow: hidden;
+  position: relative;
+  .add-point {
+    position: absolute;
+    z-index: 1000;
+    top: 16px;
+    left: 16px;
+    width: 130px;
+    height: 45px;
+    background-color: $color-yellow-1;
+    &:hover {
+      background-color: $color-brown-1;
+    }
+  }
+  .leaflet-container {
+    width: 100vw;
+    height: calc(100svh - 64px);
+    &.noPoint {
+      pointer-events: none;
+    }
+
+    .leaflet-marker-icon {
+      width: rem(32) !important;
+      height: rem(32) !important;
+      //background-color: rgba($color-yellow-1, 1);
+      background-color: transparent;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 50%;
+      border: none;
+      //box-shadow: 0px 0px 10px 6px $color-yellow-1;
+      box-shadow: unset;
+
+      &.active {
+        width: rem(36) !important;
+        height: rem(36) !important;
+
+        .markerContainer .markerIcon {
+          width: rem(20);
+        }
+      }
+
+      .markerContainer {
+        position: relative;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border: none;
+        transition: width 0.2s ease-in-out;
+        border-radius: 50%;
+        background-color: rgba(69, 58, 127, 0.25);
+
+        .markerIcon {
+          background-color: transparent;
+          width: rem(50);
+          height: rem(50);
+          object-fit: contain;
+          min-height: rem(50);
+        }
+        &::after {
+          // position: absolute;
+          // z-index: -1;
+          // content: "";
+          // top: rem(-9);
+          // left: rem(-9);
+          // background-color: rgba($color-yellow-1, 1);
+          // width: rem(32);
+          // height: rem(32);
+          // border-radius: 50%;
+          // box-shadow: 0px 0px 10px 6px $color-yellow-1;
+        }
+        &.beachClass {
+          &::after {
+            background-color: rgba($color-blue-11, 1);
+            box-shadow: 0px 0px 10px 6px $color-blue-11;
+          }
+        }
+        &.museumClass {
+          &::after {
+            background-color: rgba($color-blue-10, 1);
+            box-shadow: 0px 0px 10px 6px $color-blue-10;
+          }
+        }
+        &.geoClass {
+          &::after {
+            background-color: rgba($color-yellow-3, 1);
+            box-shadow: 0px 0px 10px 6px $color-yellow-3;
+          }
+        }
+        &.viewpointClass {
+          &::after {
+            background-color: rgba($color-gray-a3, 1);
+            box-shadow: 0px 0px 10px 6px $color-gray-a3;
+          }
+        }
+        &.cultureClass {
+          &::after {
+            background-color: rgba($color-green-1, 1);
+            box-shadow: 0px 0px 10px 6px $color-green-1;
+          }
+        }
+        &.parkClass {
+          &::after {
+            background-color: rgba($color-brown-2, 1);
+            box-shadow: 0px 0px 10px 6px $color-brown-2;
+          }
+        }
+        &.farmClass {
+          &::after {
+            background-color: rgba($color-brown-3, 1);
+            box-shadow: 0px 0px 10px 6px $color-brown-3;
+          }
+        }
+        &.walkClass {
+          &::after {
+            background-color: rgba($color-green-2, 1);
+            box-shadow: 0px 0px 10px 6px $color-green-2;
+          }
+        }
+        &.centerClass {
+          &::after {
+            background-color: rgba($color-blue-12, 1);
+            box-shadow: 0px 0px 10px 6px $color-blue-12;
+          }
+        }
+        &.defaultClass {
+          &::after {
+            background-color: rgba($color-yellow-1, 1);
+            box-shadow: 0px 0px 10px 6px $color-yellow-1;
+          }
+        }
+        &.selected {
+          &::after {
+            border: 2px solid $color-white !important;
+          }
+        }
+
+        // &:hover {
+        //   height: rem(36);
+        //   transform: scale(1.1);
+        //   transition: all 0.1s ease-in-out;
+        //   .markerIconBg {
+        //     width: rem(36);
+        //     background-color: $color-white;
+        //     .markerIcon {
+        //       width: rem(20);
+        //       filter: brightness(0) saturate(100%) invert(31%) sepia(77%) saturate(1291%) hue-rotate(204deg) brightness(98%) contrast(94%);
+        //     }
+        //   }
+        // }
+      }
+    }
+    .leaflet-control-attribution {
+      overflow: hidden;
+      transition: $trans-all-3;
+      padding-top: 0.25rem;
+      transform: translateX(93%);
+      &.show-attribution {
+        transform: translateX(0);
+      }
+      .js-toggle-attribution {
+        font-size: rem(14);
+        color: $color-yellow-1;
+        cursor: pointer;
+        float: left;
+      }
+
+      a {
+        color: $color-primary;
+      }
+    }
+  }
+  .category-bar {
+    &.active {
+      display: block;
+      width: 100%;
+      z-index: 1001;
+      ~ #routesPlanner {
+        display: none;
+      }
+    }
+    &.close {
+      display: none;
+    }
+  }
+  .routes-planner-map {
+    &.active {
+      display: block;
+      width: 100%;
+      z-index: 1001;
+      left: 0;
+      pointer-events: all;
+      padding-right: rem(16);
+    }
+  }
+}
+
+@media screen and (min-width: $lg) {
+  .mapPage {
+    .leaflet-container {
+      height: 100vh;
+      width: 100vw;
+      .leaflet-control-zoom {
+        margin-left: rem(40);
+        margin-bottom: rem(40);
+        .leaflet-control-zoom-in {
+          margin-left: auto;
+          &::after {
+            color: $color-yellow-1;
+          }
+        }
+        .leaflet-control-zoom-out {
+          margin-left: auto;
+          &::after {
+            color: $color-yellow-1;
+            content: "";
+            height: 2px;
+            width: 11px;
+            background-color: $color-yellow-1;
+          }
+        }
+      }
+    }
+    .routes-planner-map {
+      &.active {
+        display: block;
+        width: rem(415);
+        z-index: 1001;
+        left: auto;
+        right: 0;
+        pointer-events: all;
+        padding-right: rem(16);
+      }
+    }
+  }
+}

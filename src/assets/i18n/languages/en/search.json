@@ -1,0 +1,10 @@
+{
+  "noResultsDescription": "Try another words",
+  "placeholder": "Search by term...",
+  "results_one": "{{count}} result",
+  "results_other": "{{count}} results",
+  "resultsTitle": "Search results: \"{{item}}\"",
+  "search": "Search",
+  "searchButton": "Search",
+  "to": "to"
+}

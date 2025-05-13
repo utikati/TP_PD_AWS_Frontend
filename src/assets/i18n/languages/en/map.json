@@ -1,0 +1,21 @@
+{
+  "address": "Address",
+  "addRoute": "Add to route",
+  "alreadyAddRoute": "Already added",
+  "coordinates": "Coordinates",
+  "exportPdf": "Export route",
+  "button": "How to get here",
+  "category": "Category",
+  "filters": "Filters",
+  "clean": "Clean",
+  "closeBtn": "Close",
+  "goBackFilters": "Go back to filter",
+  "goBackMaps": "Go back to map",
+  "goBack": "Go back",
+  "locals": "Locals",
+  "local": "Local",
+  "localization": "Localization",
+  "seeRoute": "See Route",
+  "routePdf": "Route.pdf",
+  "placeholder": "Search term"
+}

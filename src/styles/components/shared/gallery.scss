@@ -1,0 +1,194 @@
+.gallery-section {
+  position: relative;
+}
+.generic-gallery {
+  width: 100vw;
+  left: calc((100% - 100vw) / 2);
+  position: relative;
+  .swiper-wrapper {
+    margin-bottom: rem(15);
+  }
+}
+.generic-swiper {
+  .swiper-slide {
+    width: auto;
+    height: rem(140);
+    img,
+    video {
+      width: auto;
+      height: rem(140);
+      object-fit: cover;
+    }
+
+    .overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+      z-index: 3;
+      transition: $trans-all-3;
+      cursor: pointer;
+      &:after {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(
+          180deg,
+          #00000057 0,
+          rgba(0, 0, 0, 0.338) 3.5%,
+          rgba(0, 0, 0, 0.324) 7%,
+          rgba(0, 0, 0, 0.306) 10.35%,
+          rgba(0, 0, 0, 0.285) 13.85%,
+          rgba(0, 0, 0, 0.262) 17.35%,
+          rgba(0, 0, 0, 0.237) 20.85%,
+          rgba(0, 0, 0, 0.213) 24.35%,
+          rgba(0, 0, 0, 0.188) 27.85%,
+          rgba(0, 0, 0, 0.165) 31.35%,
+          rgba(0, 0, 0, 0.144) 34.85%,
+          rgba(0, 0, 0, 0.126) 38.35%,
+          rgba(0, 0, 0, 0.112) 41.85%,
+          rgba(0, 0, 0, 0.103) 45.35%,
+          #0000001a 48.85%,
+          rgba(0, 0, 0, 0.103) 52.35%,
+          rgba(0, 0, 0, 0.112) 55.85%,
+          rgba(0, 0, 0, 0.126) 59.35%,
+          rgba(0, 0, 0, 0.144) 62.85%,
+          rgba(0, 0, 0, 0.165) 66.35%,
+          rgba(0, 0, 0, 0.188) 69.85%,
+          rgba(0, 0, 0, 0.213) 73.35%,
+          rgba(0, 0, 0, 0.237) 76.85%,
+          rgba(0, 0, 0, 0.262) 80.35%,
+          rgba(0, 0, 0, 0.285) 83.85%,
+          rgba(0, 0, 0, 0.306) 87.35%,
+          rgba(0, 0, 0, 0.324) 90.85%,
+          rgba(0, 0, 0, 0.338) 94.35%,
+          rgba(0, 0, 0, 0.347) 97.85%,
+          #00000059
+        );
+        transition: $trans-all-3;
+        opacity: 0;
+      }
+      &:hover {
+        &:after {
+          opacity: 1;
+        }
+      }
+    }
+  }
+  .swiper-pagination.swiper-pagination-progressbar {
+    width: calc(100% - 11rem);
+    margin: 0 5rem;
+    top: auto;
+    bottom: rem(20);
+    background: none;
+    display: none;
+    .swiper-pagination-progressbar-fill {
+      background-color: $color-yellow-1;
+      z-index: 1;
+      height: rem(3);
+    }
+    &:after {
+      content: " ";
+      position: absolute;
+      left: 0;
+      top: 50%;
+      width: 100%;
+      height: rem(1);
+      transform: translateY(-50%);
+      background-color: $color-gray-3;
+    }
+  }
+  .swiper-button-prev,
+  .swiper-button-next {
+    bottom: 0;
+    top: auto;
+    color: $color-primary;
+    width: auto;
+    height: auto;
+    min-height: rem(20);
+    display: none;
+    border-radius: 50px;
+    padding: rem(10);
+    width: rem(45);
+    height: rem(45);
+    &:after {
+      font-family: "Font Awesome 5 Pro";
+      font-weight: bold;
+      font-size: rem(22);
+    }
+  }
+  .swiper-button-prev {
+    left: auto;
+    right: rem(40);
+    &:after {
+      content: "\f053"; //fa-chevron-left
+    }
+  }
+  .swiper-button-next {
+    right: 0;
+    &:after {
+      content: "\f054"; //fa-chevron-right
+    }
+  }
+}
+.fraction-pagination {
+  font-family: $font-primary;
+  @include font(12, 15, 1.8);
+  position: absolute;
+  color: $color-yellow-1;
+  font-weight: $font-text--bold;
+  display: flex;
+  align-items: center;
+  height: 2rem;
+}
+
+@media screen and (min-width: $md) {
+  .generic-swiper {
+    .swiper-slide {
+      &,
+      img,
+      video {
+        height: rem(182);
+      }
+    }
+  }
+}
+
+@media screen and (min-width: $lg) {
+  .generic-gallery {
+    width: 100%;
+    left: 0;
+  }
+  .generic-swiper {
+    padding-bottom: 2.5rem;
+    .swiper-slide {
+      &,
+      img,
+      video {
+        height: rem(224);
+      }
+    }
+    .swiper-pagination.swiper-pagination-progressbar {
+      display: block;
+      width: calc(100% - rem(200));
+    }
+    .swiper-button-prev,
+    .swiper-button-next {
+      display: flex;
+      border-radius: 50%;
+      background-color: $color-yellow-1;
+      color: $color-white;
+    }
+    .swiper-button-next {
+      margin-left: rem(5);
+    }
+    .swiper-button-prev {
+      right: rem(52);
+    }
+  }
+}

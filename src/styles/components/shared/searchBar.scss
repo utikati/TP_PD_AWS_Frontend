@@ -1,0 +1,144 @@
+.search-bar {
+  background: $color-yellow-light-2;
+  border-radius: rem(2);
+  margin-top: rem(20);
+  position: relative;
+  z-index: 5;
+
+  &__form {
+    &-container {
+      padding: rem(12) rem(16) rem(13) rem(16);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: rem(36);
+      & > * {
+        flex: 1;
+        width: 100%;
+      }
+      .a-dropdown-multiple-selection-field {
+        padding-right: rem(12);
+      }
+      .a-input,
+      .a-input::placeholder,
+      .a-placeholder {
+        width: 100%;
+        @include font(14, 18, 0.35);
+        color: $color-gray-5;
+      }
+      .a-input {
+        border-radius: 0;
+        border: 0px;
+        &:focus {
+          border: 0px;
+          outline: none;
+        }
+      }
+      .fa-angle-down,
+      .fa-magnifying-glass {
+        color: $color-yellow-1;
+      }
+      .fa-magnifying-glass {
+        @include font(14, 14, 0);
+      }
+      .a-btn {
+        @include font(14, 18, 0.35);
+        text-transform: uppercase;
+        border-radius: rem(2);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        color: $color-gray-5;
+      }
+      .a-btn-primary {
+        color: $color-white;
+        background-color: $color-yellow-1;
+        border-color: $color-yellow-1;
+      }
+      .search-container {
+        display: flex;
+        gap: rem(30);
+        justify-content: center;
+      }
+      .calendar-search {
+        padding-right: rem(10);
+        .datepicker-container {
+          position: relative;
+          &__placeHolder {
+            .placeHolder-text {
+              display: flex;
+              justify-content: space-between;
+              align-items: center;
+              height: rem(57);
+              width: 100%;
+              padding-left: 0;
+              padding-right: 0;
+
+              &--data {
+                @include fontFull(14, 18, $font-primary, 0.35, $font-text--regular);
+              }
+              .fa-solid {
+                font-size: rem(11);
+                transform: rotate(0deg);
+                transition: all 0.5s ease-in-out;
+                color: $color-yellow-1;
+              }
+              &.active {
+                .fa-solid {
+                  transform: rotate(180deg);
+                  transition: all 0.5s ease-in-out;
+                }
+              }
+            }
+          }
+          .react-datepicker-wrapper {
+            position: absolute;
+            top: 0;
+            opacity: 0;
+          }
+          .react-datepicker__input-container {
+            display: flex;
+            justify-content: center;
+            input {
+              width: 100%;
+              height: rem(55);
+              cursor: pointer;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+@media screen and (min-width: $lg) {
+  .search-bar {
+    margin-top: rem(50);
+    background-color: $color-white;
+    &__form {
+      &-container {
+        padding: rem(7) rem(12) rem(7) rem(25);
+        flex-direction: row;
+        justify-content: space-between;
+        gap: rem(32);
+        .a-input,
+        .a-input::placeholder,
+        .a-placeholder {
+          @include font(14, 18, 0.35);
+        }
+        .a-dropdown-multiple-selection-field {
+          max-width: rem(217);
+        }
+        .search-container {
+          display: flex;
+          gap: rem(5);
+          justify-content: center;
+        }
+        .fa-magnifying-glass {
+          @include font(20, 20, 0);
+        }
+      }
+    }
+  }
+}

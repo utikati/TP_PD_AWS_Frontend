@@ -1,0 +1,106 @@
+.generic-list {
+  &__content {
+    display: grid;
+    gap: rem(20);
+  }
+  &__img-card {
+    position: relative;
+    &::after {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      background: transparent linear-gradient(180deg, rgba(35, 35, 35, 0) 0%, rgba(108, 108, 108, 0.3) 100%) 0% 0% no-repeat padding-box;
+      width: 100%;
+      height: 100%;
+      border-radius: rem(8);
+    }
+    &:hover {
+      .img-card {
+        &__img {
+          img {
+            transform: scale(1.2);
+          }
+        }
+        &__title {
+          text-decoration: underline;
+        }
+      }
+    }
+    .img-card {
+      &__img {
+        height: rem(224);
+        overflow: hidden;
+        width: 100%;
+        position: relative;
+        border-radius: rem(8);
+        img {
+          transform: scale(1);
+          transition: $trans-all-3;
+          height: 100%;
+        }
+      }
+      &__title {
+        @include font(15, 19);
+        @include linelimit(2, 100%);
+        font-weight: 500;
+        transition: $trans-all-3;
+        color: $color-white;
+        position: absolute;
+        z-index: 10;
+        left: rem(24);
+        bottom: rem(22);
+        padding-right: rem(10);
+      }
+    }
+  }
+  .main--generic {
+    .margin-bottom {
+      &__header {
+        .title__container--generic {
+          .title--generic {
+            color: $color-brown-1;
+          }
+        }
+        margin-bottom: rem(64); //listagem de temas
+        .margin-top--generic {
+          .description--generic {
+            &.margin-right--generic {
+              margin: 0;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+@media screen and (min-width: $md) {
+  .generic-list {
+    &__content {
+      grid-template-columns: repeat(2, 1fr);
+      gap: rem(40) rem(16);
+    }
+    .img-card__img {
+      height: rem(289);
+    }
+  }
+}
+@media screen and (min-width: $lg) {
+  .generic-list {
+    &__content {
+      grid-template-columns: repeat(3, 1fr);
+    }
+    &__img-card {
+      .img-card__title {
+        @include font(20, 24);
+      }
+    }
+    .main--generic {
+      .margin-bottom {
+        &__header {
+          margin-bottom: rem(64);
+        }
+      }
+    }
+  }
+}

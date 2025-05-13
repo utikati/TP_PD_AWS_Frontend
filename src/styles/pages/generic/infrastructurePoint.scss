@@ -1,0 +1,332 @@
+.infrastructure-point {
+  position: relative;
+  .breadcrumbs {
+    position: relative;
+    padding-top: rem(16);
+    z-index: 3;
+  }
+  &-topContent {
+    position: relative;
+
+    &__topImage {
+      position: relative;
+      margin-inline: -1.3rem;
+      z-index: 1;
+
+      &::after {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: rem(55);
+        background: linear-gradient(180deg, rgba(20, 20, 20, 0) 0%, rgba(20, 20, 20, 0.791667) 60.94%, rgba(20, 20, 20, 0.95) 84.37%);
+        transform: rotate(-180deg);
+        z-index: 2;
+      }
+
+      .topImage {
+        width: 100%;
+        height: rem(409);
+      }
+      .textImage {
+        display: none;
+      }
+      .breadcrumbs-mobile {
+        position: absolute;
+        top: 0;
+        padding-inline: rem(20);
+        .breadcrumbs {
+          .breadcrumb {
+            .breadcrumb-item {
+              color: $color-white;
+              .fa-light {
+                &::before {
+                  color: $color-white;
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+    &__topInformation {
+      position: relative;
+      margin-top: rem(48);
+      margin-bottom: rem(46);
+
+      &::after {
+        content: "";
+        position: absolute;
+        top: 0;
+        right: 0;
+        width: 100%;
+        height: 100%;
+        z-index: -1;
+        background-color: $color-yellow-light-3;
+        transform: translateX(100%);
+      }
+      &::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: -1;
+        background-color: $color-yellow-light-3;
+        transform: translateX(-100%);
+      }
+      .title {
+        @include fontFull(20, 24, $font-primary, 0, $font-text--semibold);
+        margin-bottom: rem(34);
+        color: $color-brown-1;
+      }
+      .category {
+        @include font(12, 15, 1.8);
+        font-family: $font-primary;
+        color: $color-yellow-1;
+        margin-bottom: rem(20);
+        text-transform: uppercase;
+        font-weight: $font-text--medium;
+      }
+      .address {
+        margin-bottom: rem(13);
+        display: flex;
+        align-items: baseline;
+        flex-direction: row;
+        p {
+          margin-bottom: unset !important;
+        }
+        .fa-map-marker-alt {
+          width: rem(14);
+          height: rem(14);
+          color: $color-gray-5;
+          margin-right: rem(10);
+        }
+        .textAddress {
+          @include font(15, 22, 0);
+          color: $color-gray-5;
+        }
+      }
+      .email {
+        margin-bottom: rem(13);
+        display: flex;
+        align-items: baseline;
+        flex-direction: row;
+        a {
+          text-decoration: none !important;
+        }
+        .fa-at {
+          width: rem(14);
+          height: rem(14);
+          color: $color-gray-5;
+          margin-right: rem(10);
+        }
+        .textEmail {
+          @include font(15, 22, 0);
+          color: $color-gray-5;
+        }
+      }
+      .website {
+        margin-bottom: rem(13);
+        display: flex;
+        align-items: baseline;
+        flex-direction: row;
+        a {
+          text-decoration: none !important;
+        }
+        .fa-globe {
+          width: rem(14);
+          height: rem(14);
+          color: $color-gray-5;
+          margin-right: rem(10);
+        }
+        .textWebsite {
+          @include font(15, 22, 0);
+          color: $color-gray-5;
+        }
+      }
+      .contact {
+        margin-bottom: rem(13);
+        display: flex;
+        align-items: baseline;
+        flex-direction: row;
+        a {
+          text-decoration: none !important;
+        }
+        .fa-phone {
+          width: rem(14);
+          height: rem(14);
+          color: $color-gray-5;
+          margin-right: rem(10);
+        }
+        .textContact {
+          @include font(15, 22, 0);
+          color: $color-gray-5;
+        }
+      }
+    }
+  }
+  &-middleContent {
+    margin-bottom: rem(28);
+    &__subtitle {
+      @include font(16, 26, 0);
+      color: $color-gray-5;
+      margin-top: rem(46);
+    }
+    &__description {
+      color: $color-gray-5;
+      @include font(16, 26, 0);
+      margin-top: rem(15);
+      max-width: rem(841);
+
+      p {
+        margin-bottom: unset;
+      }
+    }
+    &__lastUpdate {
+      @include fontFull(12, 20, $font-primary, 0, $font-text--semibold);
+      color: $color-yellow-1;
+      margin-top: rem(15);
+    }
+  }
+  &-bottomContent {
+    margin-bottom: rem(64);
+
+    p {
+      margin-bottom: 0 !important;
+    }
+    &__gallery-container {
+      margin-bottom: rem(53);
+    }
+    &__document-container {
+      margin-bottom: rem(64);
+    }
+  }
+  &-shareContent {
+    margin-bottom: rem(34);
+  }
+}
+
+@media screen and (min-width: $lg) {
+  .infrastructure-point {
+    &-topContent {
+      &__topInformation {
+        margin-top: 0;
+        padding-bottom: rem(72);
+        margin-bottom: rem(33);
+        background-color: $color-yellow-light-3;
+
+        .title {
+          @include fontFull(34, 42, $font-primary, 0, $font-text--semibold);
+          margin-top: rem(88);
+          margin-bottom: rem(40);
+          max-width: rem(444);
+          color: $color-brown-1;
+        }
+        .category {
+          margin-bottom: rem(18);
+        }
+        .address {
+          margin-bottom: rem(31);
+
+          .fa-map-marker-alt {
+            width: rem(16);
+            height: rem(16);
+            margin-right: rem(16);
+          }
+          .textAddress {
+            @include font(18, 26, 0);
+            font-weight: $font-text--regular;
+          }
+        }
+        .email {
+          margin-bottom: rem(25);
+          .fa-at {
+            width: rem(16);
+            height: rem(16);
+            margin-right: rem(16);
+          }
+          .textEmail {
+            @include font(18, 26, 0);
+            font-weight: $font-text--regular;
+          }
+        }
+        .website {
+          margin-bottom: rem(25);
+          .fa-globe {
+            width: rem(16);
+            height: rem(16);
+            margin-right: rem(16);
+          }
+          .textWebsite {
+            @include font(18, 26, 0);
+            font-weight: $font-text--regular;
+          }
+        }
+        .contact {
+          .fa-phone {
+            width: rem(16);
+            height: rem(16);
+            margin-right: rem(16);
+          }
+          .textContact {
+            @include font(18, 26, 0);
+            font-weight: $font-text--regular;
+          }
+        }
+      }
+      &__topImage {
+        width: rem(536);
+        float: right;
+        margin-left: 6.25rem;
+        margin-bottom: rem(40);
+
+        &::after {
+          display: none;
+        }
+
+        .textImage {
+          display: block;
+          @include fontFull(14, 18, $font-primary, 0.35, $font-text--regular);
+          color: $color-yellow-1;
+          margin-top: rem(12);
+        }
+        img {
+          width: 100%;
+        }
+        .topImage {
+          width: 100%;
+          height: rem(682);
+        }
+      }
+    }
+    &-middleContent {
+      margin-bottom: rem(51);
+      &__subtitle {
+        @include fontFull(18, 28, $font-primary, 0, $font-text--regular);
+        min-width: rem(515);
+      }
+      &__description {
+        @include fontFull(18, 28, $font-primary, 0, $font-text--regular);
+      }
+      &__lastUpdate {
+        margin-top: rem(13);
+        display: block;
+      }
+    }
+    &-bottomContent {
+      margin-bottom: rem(88);
+      &__gallery-container {
+        margin-bottom: rem(55);
+      }
+      &__document-container {
+        margin-bottom: rem(95);
+      }
+    }
+    &-shareContent {
+      margin-bottom: rem(81);
+    }
+  }
+}

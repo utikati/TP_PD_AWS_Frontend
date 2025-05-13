@@ -1,0 +1,98 @@
+@use "sass:math";
+
+// mixins
+@mixin center-horizontal {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+}
+@mixin center-vertical {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+}
+@mixin center-total {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+@mixin font($size, $line-height: 0, $letter-spacing: 0) {
+  font-size: rem($size);
+
+  @if $line-height != 0 {
+    line-height: math.div($line-height, $size); //calculate line-height in percent based in given font and line-height ratio
+  } @else {
+    line-height: 1.2;
+  }
+
+  @if ($letter-spacing != 0) {
+    letter-spacing: letterspace($letter-spacing, $size);
+  }
+}
+
+@mixin fontFull($size, $line-height: 0, $family: "", $letter-spacing: 0, $font-weight: 0) {
+  font-size: rem($size);
+  @if $line-height != 0 {
+    line-height: math.div($line-height, $size); //calculate line-height in percent based in given font and line-height ratio
+  } @else {
+    line-height: 1.2;
+  }
+  @if $family != "" {
+    font-family: $family;
+  }
+  @if $letter-spacing != 0 {
+    letter-spacing: letterspace($letter-spacing, $size);
+  }
+  @if $font-weight != 0 {
+    font-weight: $font-weight;
+  }
+}
+
+//Limit text lines
+@mixin linelimit($clamp, $height, $fixedHeight: false) {
+  display: -webkit-box;
+  -webkit-line-clamp: $clamp;
+  -webkit-box-orient: vertical;
+  @if $fixedHeight {
+    height: $height;
+  }
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+@mixin linelimit2($clamp, $fontsize, $lineheight, $fixedHeight: false) {
+  display: -webkit-box;
+  -webkit-line-clamp: $clamp;
+  -webkit-box-orient: vertical;
+  @if $fixedHeight {
+    height: em($clamp * $lineheight, $fontsize);
+  }
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+@mixin remlinelimit($clamp, $lineHeight, $fixedHeight: false) {
+  display: -webkit-box;
+  -webkit-line-clamp: $clamp;
+  -webkit-box-orient: vertical;
+  @if $fixedHeight {
+    height: rem(calc($clamp * $lineHeight));
+  }
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+// card
+@mixin card-container($padding, $color, $b-color, $child: false) {
+  color: $color;
+  padding-block: $padding;
+  border-top: 1px solid $b-color;
+
+  @if $child {
+    #{$child} {
+      border-bottom: 1px solid $b-color;
+    }
+  }
+}

@@ -1,0 +1,65 @@
+.search-input {
+  height: rem(45);
+  display: flex;
+  align-items: center;
+  position: relative;
+  background-color: transparent;
+  @include fontFull(13, 16, $font-primary, 0.33, $font-text--regular);
+  z-index: 2;
+  gap: rem(11);
+
+  &.active {
+    color: $color-gray-1;
+  }
+  &__keyword-input {
+    height: rem(18);
+    width: rem(169);
+    border: none;
+    background-color: transparent;
+
+    &:-webkit-autofill,
+    &:-webkit-autofill:hover,
+    &:-webkit-autofill:focus,
+    &:-webkit-autofill:active {
+      background-color: $color-white !important; /*Transparent wont work on -webkit-autofill*/
+    }
+    &::placeholder {
+      @include fontFull(14, 18, $font-primary, 0.35, $font-text--regular);
+      color: $color-gray-5;
+    }
+    &:focus {
+      outline: none;
+    }
+  }
+  &__keyword-icon {
+    @include font(14, 18, 0);
+    color: $color-yellow-1;
+  }
+}
+
+@media screen and (min-width: 992px) {
+  .search-input {
+    width: rem(232);
+    height: rem(45);
+    margin-left: auto;
+    margin-right: 0;
+    background-color: $color-white;
+    @include fontFull(14, 18, $font-primary, 0.35, $font-text--medium);
+
+    &.active {
+      @include fontFull(14, 18, $font-primary, 0.35, $font-text--medium);
+      color: $color-gray-5;
+    }
+
+    &__keyword-input::placeholder {
+      @include fontFull(14, 18, $font-primary, 0.35, $font-text--regular);
+      color: $color-gray-5;
+    }
+    &__keyword-icon {
+      @include font(20, 27, 0);
+      font-weight: $font-text--light;
+      padding-right: rem(11);
+      padding-left: rem(19);
+    }
+  }
+}

@@ -1,0 +1,128 @@
+.image-gallery {
+  .margin-bottom--generic:first-child {
+    margin-bottom: rem(23);
+  }
+  &__content {
+    display: flex;
+    flex-direction: row;
+    columns: 2;
+    width: 100%;
+    gap: rem(10);
+    &-column {
+      min-height: 100px;
+      width: calc(100% / 2);
+      height: fit-content;
+    }
+  }
+  &__item {
+    animation: image-gallery-enter 0.8s ease-in-out forwards;
+    margin-bottom: rem(10);
+    width: 100%;
+    transform: translateY(rem(40)) scale(0);
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+    transition: $trans-all-3;
+    @keyframes image-gallery-enter {
+      from {
+        transform: translateY(rem(100)) scale(0);
+        opacity: 0;
+      }
+      to {
+        transform: translateY(0) scale(1);
+        opacity: 1;
+      }
+    }
+    &--active {
+      transform: translateY(0) scale(1);
+      transition: $trans-all-3;
+    }
+
+    a {
+      height: 100%;
+      width: 100%;
+    }
+    &:active,
+    &:hover {
+      transition: $trans-all-3;
+
+      span {
+        opacity: 1;
+      }
+      img {
+        transform: scale(1.2);
+        transition: $trans-all-3;
+      }
+    }
+    span {
+      content: "";
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      left: 0;
+      right: 0;
+      opacity: 0;
+      pointer-events: none;
+      z-index: 1;
+      background: linear-gradient(
+        180deg,
+        #00000057 0,
+        rgba(0, 0, 0, 0.338) 3.5%,
+        rgba(0, 0, 0, 0.324) 7%,
+        rgba(0, 0, 0, 0.306) 10.35%,
+        rgba(0, 0, 0, 0.285) 13.85%,
+        rgba(0, 0, 0, 0.262) 17.35%,
+        rgba(0, 0, 0, 0.237) 20.85%,
+        rgba(0, 0, 0, 0.213) 24.35%,
+        rgba(0, 0, 0, 0.188) 27.85%,
+        rgba(0, 0, 0, 0.165) 31.35%,
+        rgba(0, 0, 0, 0.144) 34.85%,
+        rgba(0, 0, 0, 0.126) 38.35%,
+        rgba(0, 0, 0, 0.112) 41.85%,
+        rgba(0, 0, 0, 0.103) 45.35%,
+        #0000001a 48.85%,
+        rgba(0, 0, 0, 0.103) 52.35%,
+        rgba(0, 0, 0, 0.112) 55.85%,
+        rgba(0, 0, 0, 0.126) 59.35%,
+        rgba(0, 0, 0, 0.144) 62.85%,
+        rgba(0, 0, 0, 0.165) 66.35%,
+        rgba(0, 0, 0, 0.188) 69.85%,
+        rgba(0, 0, 0, 0.213) 73.35%,
+        rgba(0, 0, 0, 0.237) 76.85%,
+        rgba(0, 0, 0, 0.262) 80.35%,
+        rgba(0, 0, 0, 0.285) 83.85%,
+        rgba(0, 0, 0, 0.306) 87.35%,
+        rgba(0, 0, 0, 0.324) 90.85%,
+        rgba(0, 0, 0, 0.338) 94.35%,
+        rgba(0, 0, 0, 0.347) 97.85%,
+        #00000059
+      );
+      transition: $trans-all-3;
+    }
+    img {
+      transform: scale(1);
+      transition: $trans-all-3;
+    }
+    &--bottom {
+      width: 100%;
+      height: rem(12);
+    }
+  }
+}
+@media screen and (min-width: $lg) {
+  .image-gallery {
+    .margin-bottom--generic:first-child {
+      margin-bottom: rem(40);
+    }
+    &__content {
+      columns: 3;
+      gap: rem(16);
+      &-column {
+        width: calc(100% / 3);
+      }
+    }
+    &__item {
+      margin-bottom: rem(16);
+    }
+  }
+}

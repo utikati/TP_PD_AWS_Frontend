@@ -1,0 +1,42 @@
+.no-results {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  svg {
+    margin-bottom: rem(25);
+  }
+  .no-results {
+    &__title {
+      @include font(26, 32, 0);
+      font-weight: $font-text--semibold;
+      color: $color-yellow-1;
+      text-align: center;
+      padding-bottom: rem(5);
+    }
+    &__subTitle {
+      @include font(16, 19, 0);
+      font-weight: $font-text--regular;
+      color: $color-gray-10;
+      text-align: center;
+    }
+  }
+}
+
+@media screen and (min-width: $lg) {
+  .no-results {
+    svg {
+      margin-bottom: 0;
+    }
+    &__title {
+      @include font(26, 32, 0);
+      font-weight: $font-text--semibold;
+      color: $color-gray-10;
+      margin-top: rem(25);
+    }
+    &__subTitle {
+      @include font(16, 19, 0);
+      font-weight: $font-text--regular;
+      color: $color-gray-10;
+    }
+  }
+}

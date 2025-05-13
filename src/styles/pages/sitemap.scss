@@ -1,0 +1,266 @@
+.sitemap {
+  @extend .faqs-list;
+  .title__container--generic {
+    text-align: center;
+    margin-bottom: calc(38px - 8px); //calc because title have padding
+  }
+  .main--generic {
+    padding-top: rem(10);
+    padding-bottom: rem(32);
+    .container {
+      .margin-bottom {
+        &__header {
+          margin-bottom: rem(31);
+        }
+        &__list {
+          margin-bottom: rem(64);
+        }
+      }
+    }
+  }
+  .loader-outer {
+    min-height: rem(100);
+  }
+  &__content {
+    max-width: rem(904);
+    margin-inline: auto;
+  }
+  .accordion {
+    &-item {
+      border-color: $color-gray-3;
+      min-height: rem(64);
+      a {
+        display: block;
+        min-height: rem(64);
+        .accordion-header {
+          min-height: rem(64);
+        }
+        .accordion-header[aria-expanded="true"] {
+          border-top: none;
+        }
+
+        .accordion-button {
+          min-height: rem(64);
+        }
+
+        &.active {
+          border-top: 0.125rem solid $color-yellow-1;
+        }
+      }
+    }
+    &-button:not(.collapsed) {
+      padding-left: inherit;
+      padding-bottom: rem(16);
+      .accordion-btn {
+        &::before {
+          transform: rotate(90deg);
+          transition: all 0.2s ease-in-out;
+        }
+        &::after {
+          opacity: 0;
+          transform: rotate(90deg);
+          transition: all 0.2s ease-in-out;
+        }
+      }
+      div.accordion-title {
+        font-weight: 500;
+        color: $color-yellow-1;
+      }
+    }
+    &-btn {
+      position: absolute !important;
+      height: 100%;
+      width: rem(62);
+      right: 0;
+      margin-right: 0 !important;
+      z-index: 20;
+      &::after {
+        @extend .position-absolute;
+        content: "";
+        width: rem(11);
+        height: rem(1);
+        background-image: none !important;
+        background: $color-yellow-1;
+        opacity: 1;
+        top: rem(31);
+        right: rem(20);
+      }
+      &::before {
+        @extend .position-absolute;
+        content: "";
+        width: rem(1);
+        height: rem(11);
+        background-image: none !important;
+        background: $color-yellow-1;
+        transition: all 0.2s ease-in-out;
+        top: rem(26);
+        right: rem(25);
+      }
+    }
+    &__right-arrow {
+      margin-left: auto;
+      margin-right: 0 !important;
+      margin-top: 2px;
+      &::after {
+        @include font(16);
+        font-family: $font-awesome;
+        font-weight: 300;
+        content: "";
+        color: $color-yellow-1;
+      }
+    }
+    &-button {
+      padding: rem(16) rem(20) rem(16) rem(0);
+      min-height: rem(62);
+      margin-block: 0;
+      border-top: 1px solid transparent;
+      div {
+        pointer-events: all;
+      }
+      .accordion-btn {
+        border-left: 1px solid $color-gray-3;
+        width: rem(86);
+      }
+      &::after,
+      &::before {
+        display: none;
+      }
+      div.accordion-title {
+        @include font(13, 16);
+        color: $color-gray-5;
+        font-weight: normal;
+        transition: $trans-all-3;
+        margin-left: rem(16);
+      }
+    }
+    &-collapse {
+      overflow: hidden;
+      &.show {
+        border-bottom: none;
+      }
+    }
+    &-body {
+      padding: 0;
+      &__content {
+        min-height: rem(69);
+        padding: rem(16) rem(20) rem(16) rem(48);
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        border-top: 1px solid $color-gray-3;
+        &:hover,
+        &:active {
+          font-weight: 600;
+        }
+        &-title {
+          @include font(13, 16);
+          transition: $trans-all-1;
+        }
+      }
+    }
+  }
+}
+@media screen and (min-width: $lg) {
+  .sitemap {
+    .main--generic {
+      padding-top: rem(16);
+      padding-bottom: rem(78);
+      .container {
+        .margin-bottom {
+          &__header {
+            margin-bottom: rem(42);
+            .breadcrumbs {
+              .breadcrumb {
+                margin-bottom: rem(90);
+              }
+            }
+          }
+          &__list {
+            margin-bottom: rem(153);
+          }
+        }
+      }
+    }
+    .accordion {
+      &-item {
+        min-height: rem(69);
+        a {
+          display: block;
+          min-height: rem(69);
+          .accordion-header {
+            min-height: rem(69);
+          }
+          .accordion-button {
+            min-height: rem(69);
+          }
+        }
+      }
+      & ~ .accordion__more {
+        &::before {
+          transform: rotate(90deg);
+          transition: all 0.2s ease-in-out;
+        }
+        &::after {
+          opacity: 0;
+          transform: rotate(90deg);
+          transition: all 0.2s ease-in-out;
+        }
+      }
+      &-button:not(.collapsed) {
+        div.accordion-title {
+          @include font(18, 28);
+          font-weight: $font-text--medium;
+          color: $color-yellow-1;
+        }
+      }
+      &-btn {
+        &::after {
+          width: rem(16);
+          height: rem(2);
+          top: rem(30);
+          right: rem(31.5);
+        }
+        &::before {
+          width: rem(2);
+          height: rem(16);
+          top: rem(23);
+          right: rem(39);
+        }
+      }
+      &__right-arrow {
+        &::after {
+          @include font(24);
+          font-weight: 400;
+        }
+      }
+      &-button {
+        div.accordion-title {
+          @include font(18, 28);
+        }
+        &:hover {
+          div.accordion-title {
+            color: $color-yellow-1;
+          }
+        }
+      }
+      &-body {
+        padding: 0;
+        &__content {
+          padding: rem(16) rem(20) rem(16) rem(74);
+          &:hover,
+          &:active {
+            color: $color-yellow-1;
+            font-weight: 400;
+            background-color: rgba($color-white, 0.74);
+          }
+          &-title {
+            @include font(18, 28);
+          }
+          .accordion__right-arrow {
+            padding-right: rem(11);
+          }
+        }
+      }
+    }
+  }
+}
