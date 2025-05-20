@@ -155,8 +155,7 @@ export const MapPage = () => {
               const icon = divIcon({
                 html: `<div class='markerContainer' id='${marker.id}'>
                          <img class='markerIcon' src='${
-                           marker.current_weather?.condition_icon ||
-                           defaultMarker
+                           marker.condition_icon || defaultMarker
                          }' alt='${marker.region}' />
                        </div>`,
               });

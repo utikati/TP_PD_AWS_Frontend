@@ -34,7 +34,7 @@ export const postData = createAsyncThunk(
 
 export const deleteData = createAsyncThunk(
   "DeleteMap",
-  async (locationId: number, { rejectWithValue }) => {
+  async (locationId: string, { rejectWithValue }) => {
     try {
       const response = await fetch(`${BASE_URL}/api/locations/${locationId}`, {
         method: "DELETE",
@@ -59,7 +59,7 @@ export const patchLocationDescription = createAsyncThunk(
     locationId,
     description,
   }: {
-    locationId: number | undefined;
+    locationId: string | undefined;
     description: string;
   }) => {
     const response = await fetch(`${BASE_URL}/api/locations/${locationId}`, {
@@ -86,7 +86,7 @@ export const patchLocationDescription = createAsyncThunk(
 
 export const getLocation = createAsyncThunk(
   "GetLocation",
-  async (locationId: number | undefined, { rejectWithValue }) => {
+  async (locationId: string | undefined, { rejectWithValue }) => {
     try {
       const response = await fetch(`${BASE_URL}/api/locations/${locationId}`, {
         method: "GET",
