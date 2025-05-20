@@ -4,7 +4,7 @@ console.log("BASE_URL:", BASE_URL);
 
 export const getMapData = createAsyncThunk("Map", async () => {
   console.log(BASE_URL);
-  const response = await fetch(`${BASE_URL}/api/locations/`, {
+  const response = await fetch(`${BASE_URL}`, {
     cache: "no-store",
   });
   const data = await response.json();
