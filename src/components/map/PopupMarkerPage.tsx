@@ -39,7 +39,7 @@ export const PopupMarkerPage = (props: PopupMarkerPageProps) => {
   const deletePoint = () => {
     dispatch(clearMapData());
     goBackFilters();
-    dispatch(deleteData(markerData?.id || 0)).then(() => {
+    dispatch(deleteData(markerData?.id || "")).then(() => {
       dispatch(getMapData());
     });
   };
@@ -95,7 +95,7 @@ export const PopupMarkerPage = (props: PopupMarkerPageProps) => {
       <div className="popup-page__popup-container">
         <div className="popup-page__popup-container--popup-topImage-container">
           <CommonImage
-            src={markerData.current_weather?.condition_icon}
+            src={markerData.condition_icon}
             title={markerData.region}
           />
         </div>
@@ -114,11 +114,11 @@ export const PopupMarkerPage = (props: PopupMarkerPageProps) => {
           <div className="popup-details-title">{markerData.region}</div>
           <div className="popup-details-separator"></div>
 
-          {markerData.name && (
+          {markerData.location && (
             <div className="popup-details-info">
               <span className="popup-details-info__info-icon fal fa-map-marker-alt"></span>
               <div className="popup-details-info__info-text">
-                {decode(markerData.name)}
+                {decode(markerData.location)}
               </div>
             </div>
           )}
@@ -180,65 +180,64 @@ export const PopupMarkerPage = (props: PopupMarkerPageProps) => {
             </div>
           )}
 
-          {markerData.current_weather && (
+          {markerData && (
             <>
               <div className="popup-details-separator"></div>
 
               <div className="popup-details-info">
                 <span className="popup-details-info__info-icon fal fa-thermometer-half"></span>
                 <div className="popup-details-info__info-text">
-                  Temperature: {markerData.current_weather.temp_c}°C,{" "}
-                  {markerData.current_weather.condition_text}
+                  Temperature: {markerData.temp_c}°C,{" "}
+                  {markerData.condition_text}
                 </div>
               </div>
 
               <div className="popup-details-info">
                 <span className="popup-details-info__info-icon fal fa-temperature-low"></span>
                 <div className="popup-details-info__info-text">
-                  Feels like: {markerData.current_weather.feelslike_c}°C
+                  Feels like: {markerData.feelslike_c}°C
                 </div>
               </div>
 
               <div className="popup-details-info">
                 <span className="popup-details-info__info-icon fal fa-wind"></span>
                 <div className="popup-details-info__info-text">
-                  Wind: {markerData.current_weather.wind_kph} km/h{" "}
-                  {markerData.current_weather.wind_dir}
+                  Wind: {markerData.wind_kph} km/h {markerData.wind_dir}
                 </div>
               </div>
 
               <div className="popup-details-info">
                 <span className="popup-details-info__info-icon fal fa-tint"></span>
                 <div className="popup-details-info__info-text">
-                  Humidity: {markerData.current_weather.humidity}%
+                  Humidity: {markerData.humidity}%
                 </div>
               </div>
 
               <div className="popup-details-info">
                 <span className="popup-details-info__info-icon fal fa-sun"></span>
                 <div className="popup-details-info__info-text">
-                  UV index: {markerData.current_weather.uv}
+                  UV index: {markerData.uv}
                 </div>
               </div>
 
               <div className="popup-details-info">
                 <span className="popup-details-info__info-icon fal fa-eye"></span>
                 <div className="popup-details-info__info-text">
-                  Visibility: {markerData.current_weather.vis_km} km
+                  Visibility: {markerData.vis_km} km
                 </div>
               </div>
 
               <div className="popup-details-info">
                 <span className="popup-details-info__info-icon fal fa-cloud-rain"></span>
                 <div className="popup-details-info__info-text">
-                  Precipitation: {markerData.current_weather.precip_mm} mm
+                  Precipitation: {markerData.precip_mm} mm
                 </div>
               </div>
 
               <div className="popup-details-info">
                 <span className="popup-details-info__info-icon fal fa-tachometer-alt"></span>
                 <div className="popup-details-info__info-text">
-                  Pressure: {markerData.current_weather.pressure_mb} hPa
+                  Pressure: {markerData.pressure_mb} hPa
                 </div>
               </div>
             </>
@@ -246,7 +245,7 @@ export const PopupMarkerPage = (props: PopupMarkerPageProps) => {
 
           <a
             href={`https://www.google.com/maps/place/${markerData.latitude},${markerData.longitude}`}
-            title={markerData.name}
+            title={markerData.location}
             className="popup-details-how-to-btn"
             target="_blank"
             rel="noreferrer"
