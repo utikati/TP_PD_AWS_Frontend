@@ -87,7 +87,9 @@ export const MapPage = () => {
       console.log("Coordenadas do clique:", lat, lng);
 
       dispatch(clearMapData());
-      dispatch(postData({ latitude: lat, longitude: lng })).then(() => {
+      dispatch(
+        postData({ latitude: lat.toString(), longitude: lng.toString() })
+      ).then(() => {
         dispatch(getMapData());
       });
 
