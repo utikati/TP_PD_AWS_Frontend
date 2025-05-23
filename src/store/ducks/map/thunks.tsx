@@ -13,13 +13,13 @@ export const getMapData = createAsyncThunk("Map", async () => {
 
 export const postData = createAsyncThunk(
   "PostMap",
-  async ({ latitude, longitude }: { latitude: number; longitude: number }) => {
-    const response = await fetch(`${BASE_URL}/api/locations/`, {
+  async ({ latitude, longitude }: { latitude: string; longitude: string }) => {
+    const response = await fetch(`${BASE_URL}`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
       },
-      body: JSON.stringify({ latitude, longitude }),
+      body: JSON.stringify({ lat: latitude, lon: longitude }),
     });
 
     if (!response.ok) {
@@ -36,7 +36,7 @@ export const deleteData = createAsyncThunk(
   "DeleteMap",
   async (locationId: string, { rejectWithValue }) => {
     try {
-      const response = await fetch(`${BASE_URL}/api/locations/${locationId}`, {
+      const response = await fetch(`${BASE_URL}/${locationId}`, {
         method: "DELETE",
       });
 
@@ -62,7 +62,7 @@ export const patchLocationDescription = createAsyncThunk(
     locationId: string | undefined;
     description: string;
   }) => {
-    const response = await fetch(`${BASE_URL}/api/locations/${locationId}`, {
+    const response = await fetch(`${BASE_URL}/${locationId}`, {
       method: "PATCH",
       headers: {
         "Content-Type": "application/json",
@@ -88,7 +88,7 @@ export const getLocation = createAsyncThunk(
   "GetLocation",
   async (locationId: string | undefined, { rejectWithValue }) => {
     try {
-      const response = await fetch(`${BASE_URL}/api/locations/${locationId}`, {
+      const response = await fetch(`${BASE_URL}/${locationId}`, {
         method: "GET",
         cache: "no-store",
       });
